@@ -35,17 +35,6 @@ namespace CapaNegocio
             }
         }
 
-        public Usuario BuscarUsuarioPorUsuario(String usuario)
-        {
-            try
-            {
-                return UsuarioDAO.getInstance().BuscarUsuarioPorEmail(usuario);
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
 
         public bool BuscarSiExisteUsuarioPorEmail(String usuario)
         {
