@@ -22,6 +22,8 @@ namespace CapaDominio
 
         public TipoUsuario TipoUsuario { get; set; }
 
+        public Usuario() { }
+
         public Usuario(string email, string clave, bool estado, bool admin)
         {
             Email = email;
