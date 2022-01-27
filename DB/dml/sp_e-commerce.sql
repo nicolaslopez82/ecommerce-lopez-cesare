@@ -51,8 +51,8 @@ UPDATE Productos SET IdCategoria = @idCategoria,
      Descripcion = @descripcion, Stock = @stock, Precio = @precio, UrlImagen = @urlImagen
      WHERE IdProducto = @idProducto  
 END
-
 GO
+
 CREATE PROCEDURE SP_EliminarProducto
 (
  @idProducto bigint
@@ -63,10 +63,10 @@ DELETE FROM Productos WHERE IdProducto = @idProducto
 END
 
 SELECT TOP 1 * FROM Productos ORDER BY IdProducto DESC
+GO
 -- ///////////////// TERMINA PRODUCTOS /////////////////////////////--
 
 --/////////////// EMPIEZA FORMA DE PAGO ////////////////////////////-
-GO
 CREATE PROCEDURE SP_ListaFormaPAgo
 AS
 BEGIN
@@ -79,8 +79,7 @@ GO
 --//////////////// TERMINA FORMA DE PAGO/////////////////-
 
 --///////////////////// EMPIEZA VENTA /////////////////////////
-GO
-ALTER PROCEDURE SP_FinalizarVenta
+CREATE PROCEDURE SP_FinalizarVenta
 (
  @idUsuario bigint,
  @idPago bigint,
@@ -102,7 +101,6 @@ GO
 --///////////////////// TERMINA VENTA ////////////////////////////
 
 --//////////// EMPIEZA DETALLE VENTA ///////////////////////////
-GO
 CREATE PROCEDURE SP_UltimoIdVenta
 AS
 BEGIN
@@ -177,11 +175,12 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE PROCEDURE SP_ActualizarClaveUsuario
 (@prmIdUsuario bigint,
-@prmClave varchar(50))
+@prmClave varchar(50),
+@patron VARCHAR(50))
 AS
 	BEGIN
 		UPDATE Usuarios
-		SET Usuarios.Clave = @prmClave		
+		SET Usuarios.Clave = ENCRYPTBYPASSPHRASE(@patron, @prmClave)		
 		WHERE Usuarios.idUsuario = @prmIdUsuario
 	END
 GO
