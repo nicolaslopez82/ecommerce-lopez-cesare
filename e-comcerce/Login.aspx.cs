@@ -27,14 +27,14 @@ namespace e_comcerce
         protected void LoginUser_Authenticate(object sender, EventArgs e)
         {
 
-            Usuario usuario = UsuarioNegocio.getInstance().AccesoSistema(Login.UserName, Login.Password);
+            Usuario usuario = UsuarioNegocio.getInstance().AccesoSistema(frmLogin.UserName, frmLogin.Password);
 
             if (usuario != null)
             {
                 Session.Add("usuario", usuario);
                 Session.Add("userName", usuario.Email);
                 //TODO 
-                Response.Redirect("Pacientes.aspx", false);
+                Response.Redirect("Default.aspx", false);
             }
             else
             {
