@@ -136,18 +136,18 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE PROCEDURE SP_AgregarUsuario
-@idTipoUsuario INT,
 @usuario VARCHAR(50),
 @clave VARCHAR(50),
+@patron VARCHAR(50),
 @estado BIT,
-@patron VARCHAR(50)
+@idTipoUsuario INT
 AS
 BEGIN
-INSERT INTO Usuarios(Usuario, Estado, Clave) 
-VALUES (@usuario, @estado, ENCRYPTBYPASSPHRASE(@patron, @clave))
+INSERT INTO Usuarios(Usuario, Clave, Estado, TipoUsuario) 
+VALUES (@usuario, ENCRYPTBYPASSPHRASE(@patron, @clave), @estado, @idTipoUsuario)
 END
 GO
--- EXECUTE SP_AgregarUsuario 3,'john','snow','12345',1,'jsnow','winter','e-commerce'
+-- EXECUTE SP_AgregarUsuario 'nlopez@gmail.com','gogogo','e-commerce', 1, 1;
 -- DROP PROCEDURE SP_AgregarUsuario;  
  
  
@@ -162,11 +162,14 @@ CREATE PROCEDURE SP_ValidarUsuario
 @patron VARCHAR(50)
 AS
 BEGIN
-SELECT*FROM Usuarios WHERE Usuario = @usuario and CONVERT(VARCHAR(50),DECRYPTBYPASSPHRASE(@patron, clave)) = @clave
+SELECT * 
+FROM Usuarios 
+WHERE Usuario = @usuario and CONVERT(VARCHAR(50),DECRYPTBYPASSPHRASE(@patron, Clave)) = @clave
 END
 GO
 
 -- EXECUTE SP_ValidarUsuario 'jsnow','winter','e-commerce'
+-- DROP PROCEDURE SP_ValidarUsuario;
 
 /****** Object:  StoredProcedure SP_ActualizarDatosUsuario ******/      
 SET ANSI_NULLS ON
@@ -214,5 +217,23 @@ AS
 		FROM Usuarios U 		
 		WHERE U.Usuario = @prmUsuario
 	END
+GO
+
+/****** Object:  StoredProcedure SP_BuscarSiExisteUsuarioPorEmail ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE SP_BuscarSiExisteUsuarioPorEmail
+(@prmUsuario varchar(50))
+AS
+BEGIN   
+      IF EXISTS(SELECT U.Usuario
+                        FROM Usuarios U
+                        WHERE U.Usuario = @prmUsuario)
+		SELECT 1
+      ELSE
+		SELECT 0      
+END
 GO
 --///////////////// TERMINA USUARIOS ////////////////////
