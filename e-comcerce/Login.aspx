@@ -6,7 +6,7 @@
     <div class="container">
 
         <h2 class="form-signin-heading col-sm-10">Please sign in</h2>
-        <asp:Login ID="Login1" runat="server" EnableViewState="false" OnAuthenticate="LoginUser_Authenticate" Width="100%">
+        <asp:Login ID="Login" runat="server" EnableViewState="false" OnAuthenticate="LoginUser_Authenticate" Width="100%">
             <LayoutTemplate>
                 <div class="form-group">
                     <label for="UserName" class="col-sm-2 control-label">Email</label>

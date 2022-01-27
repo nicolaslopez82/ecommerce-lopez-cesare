@@ -27,7 +27,7 @@ namespace e_comcerce
         protected void LoginUser_Authenticate(object sender, EventArgs e)
         {
 
-            Usuario usuario = UsuarioNegocio.getInstance().AccesoSistema(Login1.UserName, Login1.Password);
+            Usuario usuario = UsuarioNegocio.getInstance().AccesoSistema(Login.UserName, Login.Password);
 
             if (usuario != null)
             {
