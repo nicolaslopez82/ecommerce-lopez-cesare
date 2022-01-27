@@ -147,7 +147,7 @@ INSERT INTO Usuarios(Usuario, Estado, Clave)
 VALUES (@usuario, @estado, ENCRYPTBYPASSPHRASE(@patron, @clave))
 END
 GO
--- EXECUTE SP_AgregarUsuario 3,'john','snow','12345',1,'jsnow','winter','utnecommerce'
+-- EXECUTE SP_AgregarUsuario 3,'john','snow','12345',1,'jsnow','winter','e-commerce'
 -- DROP PROCEDURE SP_AgregarUsuario;  
  
  
@@ -166,7 +166,7 @@ SELECT*FROM Usuarios WHERE Usuario = @usuario and CONVERT(VARCHAR(50),DECRYPTBYP
 END
 GO
 
--- EXECUTE SP_ValidarUsuario 'jsnow','winter','utnecommerce'
+-- EXECUTE SP_ValidarUsuario 'jsnow','winter','e-commerce'
 
 /****** Object:  StoredProcedure SP_ActualizarDatosUsuario ******/      
 SET ANSI_NULLS ON
