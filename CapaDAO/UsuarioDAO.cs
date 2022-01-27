@@ -15,7 +15,7 @@ namespace CapaDAO
 
         #region "PATRON SINGLETON"
         private static UsuarioDAO daoUsuario = null;
-        private static string Patron = "e-comerce";
+        private static string Patron = "e-commerce";
         private UsuarioDAO() { }
         public static UsuarioDAO getInstance()
         {
@@ -45,11 +45,12 @@ namespace CapaDAO
                 dr = cmd.ExecuteReader();
                 if (dr.Read())
                 {
-                    objUsuario = new Usuario();
-                    objUsuario.ID = Convert.ToInt32(dr["idUsuario"].ToString());
-                    objUsuario.Email = dr["usuario"].ToString();
-                    objUsuario.Clave = dr["contrasenia"].ToString();                    
-                    objUsuario.Estado = true;
+                    objUsuario = new Usuario();                    
+                    objUsuario.ID = Convert.ToInt32(dr["IdUsuario"].ToString());
+                    objUsuario.Email = dr["Usuario"].ToString();
+                    objUsuario.Clave = dr["Clave"].ToString();
+                    objUsuario.Estado = Convert.ToBoolean(dr["Estado"]);
+                    objUsuario.TipoUsuario = (int)(dr["TipoUsuario"]) == 1 ? TipoUsuario.ADMIN : TipoUsuario.COMPRADOR;                    
                 }
             }
             catch (Exception ex)
@@ -75,7 +76,7 @@ namespace CapaDAO
             {
                 con = Conexion.getInstance().ConexionBD();
                 cmd = new SqlCommand("SP_BuscarUsuarioPorEmail", con);
-                cmd.Parameters.AddWithValue("@prmEmail", email);
+                cmd.Parameters.AddWithValue("@prmUsuario", email);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 con.Open();
@@ -84,10 +85,10 @@ namespace CapaDAO
 
                 if (dr.Read())
                 {
-                    objUsuario.ID = Convert.ToInt32(dr["idUsuario"].ToString());                    
-                    objUsuario.Email = dr["email"].ToString();
-                    objUsuario.Clave = dr["clave"].ToString();
-                    objUsuario.Estado = Convert.ToBoolean(dr["estado"]);
+                    objUsuario.ID = Convert.ToInt32(dr["IdUsuario"].ToString());                    
+                    objUsuario.Email = dr["Usuario"].ToString();
+                    objUsuario.Clave = dr["Clave"].ToString();
+                    objUsuario.Estado = Convert.ToBoolean(dr["Estado"]);
                 }
 
             }
@@ -145,8 +146,8 @@ namespace CapaDAO
             {
                 con = Conexion.getInstance().ConexionBD();
                 cmd = new SqlCommand("SP_AgregarUsuario", con);
-                cmd.Parameters.AddWithValue("@idUsuario", usuario.ID);
-                cmd.Parameters.AddWithValue("@email", usuario.Email);
+                cmd.Parameters.AddWithValue("@idTipoUsuario", usuario.TipoUsuario);
+                cmd.Parameters.AddWithValue("@usuario", usuario.Email);
                 cmd.Parameters.AddWithValue("@clave", usuario.Clave);
                 cmd.Parameters.AddWithValue("@estado", usuario.Estado);
                 cmd.Parameters.AddWithValue("@patron", Patron);
@@ -171,6 +172,8 @@ namespace CapaDAO
 
             return response;
         }
+
+        //TODO listar, actualizar y eliminar Usuario SP.
 
         public List<Usuario> ListarUsuarios()
         {
