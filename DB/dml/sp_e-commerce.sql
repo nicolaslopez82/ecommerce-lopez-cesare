@@ -136,15 +136,33 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE PROCEDURE SP_AgregarUsuario
+-- Table Usuarios
 @usuario VARCHAR(50),
 @clave VARCHAR(50),
 @patron VARCHAR(50),
 @estado BIT,
-@idTipoUsuario INT
+@idTipoUsuario INT,
+-- Table DatosUsuario
+@nombre varchar(100),
+@apellido varchar(100),
+@documento varchar(8),
+@domicilio varchar(150),
+@celular varchar(20)
+
 AS
 BEGIN
+
+DECLARE @IdUsuario AS BIGINT;
+
 INSERT INTO Usuarios(Usuario, Clave, Estado, TipoUsuario) 
 VALUES (@usuario, ENCRYPTBYPASSPHRASE(@patron, @clave), @estado, @idTipoUsuario)
+
+SELECT @IdUsuario = IdUsuario FROM Usuarios WHERE Usuario = @usuario;
+
+-- TODO -> Preguntar a Maximo por el ingreso del IdDatosUsuario luego de haber ingresado el 
+-- @usuario ya que en la tabla DatosUsuarios ese valor es autoincremental.
+INSERT INTO DatosUsuario(IdDatosUsuario, Nombre, Apellido, Documento, Domicilio, Celular, Estado) 
+VALUES (@IdUsuario, @nombre, @apellido, @documento, @domicilio, @celular, @estado) 
 END
 GO
 -- EXECUTE SP_AgregarUsuario 'nlopez@gmail.com','gogogo','e-commerce', 1, 1;
@@ -236,4 +254,82 @@ BEGIN
 		SELECT 0      
 END
 GO
+
+/****** Object:  StoredProcedure SP_ListarUsuarios ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE SP_ListarUsuarios
+AS
+BEGIN
+
+SELECT U.Usuario
+      ,U.Clave
+      ,U.Estado
+      ,U.TipoUsuario
+	  ,DU.Nombre
+      ,DU.Apellido
+      ,DU.Documento
+      ,DU.Domicilio
+      ,DU.Celular
+  FROM Usuarios U
+  INNER JOIN DatosUsuario DU
+  ON DU.IdDatosUsuario = U.IdUsuario
+  WHERE U.Estado = 1;
+END
+GO
+
+-- DROP PROCEDURE SP_ListarUsuarios;
+
+/****** Object:  StoredProcedure SP_ActualizarDatosUsuario ******/      
+--SET ANSI_NULLS ON
+--GO
+--SET QUOTED_IDENTIFIER ON
+--GO
+--CREATE PROCEDURE SP_ActualizarDatosPaciente
+--(@prmUsuario varchar(50),
+-- @prmEstado bit)
+--AS
+--	BEGIN
+
+--	DECLARE @nombre AS VARCHAR(100)
+--	DECLARE @apellido AS VARCHAR(100)
+--	DECLARE	@documento AS VARCHAR(8) 
+--	DECLARE @domicilio AS VARCHAR(150)
+--	DECLARE @celular AS VARCHAR(20)
+
+--	SELECT U.Usuario      
+--	  ,@nombre = DU.Nombre
+--      ,@apellido = DU.Apellido
+--      ,@documento = DU.Documento
+--      ,@domicilio = DU.Domicilio
+--      ,@celular = DU.Celular
+--  FROM Usuarios U
+--  INNER JOIN DatosUsuario DU
+--  ON DU.Usuario = @prmUsuario
+--  WHERE U.Usuario = @prmUsuario AND @prmEstado = 1;
+
+--		update Paciente
+--		set Paciente.nombre = @prmNombre,
+--		Paciente.apellido = @prmApellido,
+--		Paciente.edad = @prmEdad,
+--		Paciente.sexo = @prmSexo,
+--		Paciente.nroDocumento = @prmNroDocumento,
+--		Paciente.direccion = @prmDireccion,
+--		Paciente.telefono = @prmTelefono	
+--		where Paciente.idPaciente = @prmIdPaciente
+
+--		    IdDatosUsuario bigint not null PRIMARY KEY FOREIGN KEY REFERENCES Usuarios(IdUsuario),
+--    Nombre varchar(100) not null,
+--    Apellido varchar(100) not null,
+--    Documento VARCHAR(8)not null,
+--    Domicilio varchar(150) null,
+--    Celular varchar(20)null,
+--    Estado bit not null
+--	END
+--GO
+
+-- DROP PROCEDURE [SP_ActualizarDatosUsuario];
+
 --///////////////// TERMINA USUARIOS ////////////////////

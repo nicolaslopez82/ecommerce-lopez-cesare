@@ -136,7 +136,7 @@ namespace CapaDAO
             return false;
         }
 
-        public bool RegistrarUsuario(Usuario usuario)
+        public bool RegistrarUsuario(Usuario usuario, DatosUsuarios datosUsuarios)
         {
             SqlConnection con = null;
             SqlCommand cmd = null;
@@ -151,6 +151,12 @@ namespace CapaDAO
                 cmd.Parameters.AddWithValue("@clave", usuario.Clave);
                 cmd.Parameters.AddWithValue("@estado", usuario.Estado);
                 cmd.Parameters.AddWithValue("@patron", Patron);
+                
+                cmd.Parameters.AddWithValue("@nombre", datosUsuarios.Nombre);
+                cmd.Parameters.AddWithValue("@apellido", datosUsuarios.Apellido);
+                cmd.Parameters.AddWithValue("@documento", datosUsuarios.Documento);
+                cmd.Parameters.AddWithValue("@domicilio", datosUsuarios.Domicilio);
+                cmd.Parameters.AddWithValue("@celular", datosUsuarios.Celular);                
 
                 cmd.CommandType = CommandType.StoredProcedure;
 
@@ -219,15 +225,16 @@ namespace CapaDAO
             bool ok = false;
             SqlConnection conexion = null;
             SqlCommand cmd = null;
+            DatosUsuarios objDatosUsuario = new DatosUsuarios();
+            objDatosUsuario.IdUsuario = objUsuario.ID;
             try
             {
                 conexion = Conexion.getInstance().ConexionBD();
                 cmd = new SqlCommand("SP_ActualizarDatosUsuario", conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@prmIdUsuario", objUsuario.ID);
-                cmd.Parameters.AddWithValue("@prmEmail", objUsuario.Email);
-                cmd.Parameters.AddWithValue("@prmClave", objUsuario.Clave);
-                cmd.Parameters.AddWithValue("@prmEstado", objUsuario.Estado);                
+                cmd.Parameters.AddWithValue("@prmUsuario", objUsuario.Email);                                
+                cmd.Parameters.AddWithValue("@prmEstado", objUsuario.Estado);                           
+                
                 conexion.Open();
 
                 cmd.ExecuteNonQuery();
@@ -260,7 +267,7 @@ namespace CapaDAO
                 conexion.Open();
 
                 cmd.ExecuteNonQuery();
-
+                
                 ok = true;
 
             }

@@ -8,7 +8,7 @@ namespace CapaDominio
 {
    public class DatosUsuarios
     {
-        public Usuario ID{ get; set; }
+        public int IdUsuario{ get; set; }
 
         public string Nombre{ get; set; }
 
