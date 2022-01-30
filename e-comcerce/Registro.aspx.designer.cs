@@ -42,6 +42,24 @@ namespace e_comcerce
         protected global::System.Web.UI.WebControls.TextBox RegisterDNI;
 
         /// <summary>
+        /// RegisterDomicilio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox RegisterDomicilio;
+
+        /// <summary>
+        /// RegisterCelular control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox RegisterCelular;
+
+        /// <summary>
         /// RegisterUsuario control.
         /// </summary>
         /// <remarks>

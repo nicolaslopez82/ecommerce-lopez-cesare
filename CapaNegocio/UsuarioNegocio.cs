@@ -49,11 +49,11 @@ namespace CapaNegocio
             }
         }
 
-        public bool RegistrarUsuario(Usuario usuario, DatosUsuarios datosUsuarios)
+        public bool RegistrarUsuario(Usuario usuario)
         {
             try
             {
-                UsuarioDAO.getInstance().RegistrarUsuario(usuario, datosUsuarios);
+                UsuarioDAO.getInstance().RegistrarUsuario(usuario);
                 return true;
             }
             catch (Exception e)

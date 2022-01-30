@@ -136,7 +136,7 @@ namespace CapaDAO
             return false;
         }
 
-        public bool RegistrarUsuario(Usuario usuario, DatosUsuarios datosUsuarios)
+        public bool RegistrarUsuario(Usuario usuario)
         {
             SqlConnection con = null;
             SqlCommand cmd = null;
@@ -152,11 +152,11 @@ namespace CapaDAO
                 cmd.Parameters.AddWithValue("@estado", usuario.Estado);
                 cmd.Parameters.AddWithValue("@patron", Patron);
                 
-                cmd.Parameters.AddWithValue("@nombre", datosUsuarios.Nombre);
-                cmd.Parameters.AddWithValue("@apellido", datosUsuarios.Apellido);
-                cmd.Parameters.AddWithValue("@documento", datosUsuarios.Documento);
-                cmd.Parameters.AddWithValue("@domicilio", datosUsuarios.Domicilio);
-                cmd.Parameters.AddWithValue("@celular", datosUsuarios.Celular);                
+                cmd.Parameters.AddWithValue("@nombre", usuario.Nombre);
+                cmd.Parameters.AddWithValue("@apellido", usuario.Apellido);
+                cmd.Parameters.AddWithValue("@documento", usuario.Documento);
+                cmd.Parameters.AddWithValue("@domicilio", usuario.Domicilio);
+                cmd.Parameters.AddWithValue("@celular", usuario.Celular);                
 
                 cmd.CommandType = CommandType.StoredProcedure;
 
@@ -224,9 +224,7 @@ namespace CapaDAO
         {
             bool ok = false;
             SqlConnection conexion = null;
-            SqlCommand cmd = null;
-            DatosUsuarios objDatosUsuario = new DatosUsuarios();
-            objDatosUsuario.IdUsuario = objUsuario.ID;
+            SqlCommand cmd = null;            
             try
             {
                 conexion = Conexion.getInstance().ConexionBD();
