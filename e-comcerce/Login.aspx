@@ -1,43 +1,59 @@
-﻿<%@ Page Title="Login" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="e_comcerce.Login" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="e_comcerce.Login" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="container">
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-        <h2 class="form-signin-heading col-sm-10">Please sign in</h2>
-        <asp:Login ID="frmLogin" runat="server" EnableViewState="false" OnAuthenticate="LoginUser_Authenticate" Width="100%">
-            <LayoutTemplate>
-                <div class="form-group">
-                    <label for="UserName" class="col-sm-2 control-label">Email</label>
-                    <div class="col-sm-10">
-                        <asp:TextBox ID="UserName" runat="server" CssClass="form-control" placeholder="Ingrese Email..."></asp:TextBox>
+    <asp:Login ID="frmLogin" runat="server" EnableViewState="false" OnAuthenticate="LoginUser_Authenticate" Width="100%">
+        <LayoutTemplate>
+            <!-- LOGIN FORM -->
+            <div id="loginbox" style="margin-top: 50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <div class="panel-title">Iniciar Sesion</div>
+                        <div style="float: right; font-size: 80%; position: relative; top: -10px"><a href="#">Ha olvidado su contraseña?</a></div>
+                    </div>
+
+                    <div style="padding-top: 30px" class="panel-body">
+
+                        <div style="display: none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+
+                        <form id="loginform" class="form-horizontal" role="form">
+
+                            <div style="margin-bottom: 25px" class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                <asp:TextBox ID="UserName" runat="server" CssClass="form-control" placeholder="Ingrese Email..."></asp:TextBox>
+                            </div>
+
+                            <div style="margin-bottom: 25px" class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                <asp:TextBox ID="Password" runat="server" CssClass="form-control" placeholder="Ingrese Contraseña..." TextMode="Password"></asp:TextBox>
+                            </div>
+
+                            <div style="margin-top: 10px" class="form-group">
+                                <!-- Button -->
+
+                                <div class="col-sm-12 controls">
+                                    <asp:Button ID="btnIngresar" CommandName="Login" runat="server" Text="Iniciar Sesion" CssClass="btn btn-success" />
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <div class="col-md-12 control" style="margin-top: 10px">
+                                    <div style="border-top: 1px solid#888; padding-top: 15px; font-size: 85%">
+                                        Usted no tiene una cuenta! 
+                                        <a href="Default.aspx">Click aqui para registrarse
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="Password" class="col-sm-2 control-label">Password</label>
-                    <div class="col-sm-10">
-                        <asp:TextBox ID="Password" runat="server" CssClass="form-control" placeholder="Ingrese clave..." TextMode="Password"></asp:TextBox>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox">
-                                Recordarme
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                        <%--<button type="submit" class="btn btn-default">Login</button>--%>
-                        <%--<asp:Button Text="Ingresar" runat="server" ID="btnIngresar" OnClick="btnIngresar_Click" cssclass="btn btn-primary"/>--%>
-                        <asp:Button ID="btnIngresar" CommandName="Login" runat="server" Text="Iniciar Sesion" CssClass="btn btn-primary" />
-                    </div>
-                </div>
-            </LayoutTemplate>
-        </asp:Login>
-    </div>
+            </div>
+        </LayoutTemplate>
+    </asp:Login>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="footer" runat="server">
 </asp:Content>

@@ -32,8 +32,7 @@ namespace e_comcerce
             if (usuario != null)
             {
                 Session.Add("usuario", usuario);
-                Session.Add("userName", usuario.Email);
-                //TODO 
+                Session.Add("userName", usuario.Email);                
                 Response.Redirect("Default.aspx", false);
             }
             else
