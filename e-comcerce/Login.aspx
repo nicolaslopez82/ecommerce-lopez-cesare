@@ -43,7 +43,7 @@
                                 <div class="col-md-12 control" style="margin-top: 10px">
                                     <div style="border-top: 1px solid#888; padding-top: 15px; font-size: 85%">
                                         Usted no tiene una cuenta! 
-                                        <a href="Default.aspx">Click aqui para registrarse
+                                        <a href="Registro.aspx">Click aqui para registrarse
                                         </a>
                                     </div>
                                 </div>

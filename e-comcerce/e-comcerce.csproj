@@ -133,6 +133,7 @@
     <Content Include="ModificarProducto.aspx" />
     <Content Include="Productos.aspx" />
     <Content Include="ProductosAdmin.aspx" />
+    <Content Include="Registro.aspx" />
     <Content Include="RegistroProducto.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -254,6 +255,13 @@
       <DependentUpon>ProductosAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registro.aspx.cs">
+      <DependentUpon>Registro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registro.aspx.designer.cs">
+      <DependentUpon>Registro.aspx</DependentUpon>
+    </Compile>
     <Compile Include="RegistroProducto.aspx.cs">
       <DependentUpon>RegistroProducto.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
