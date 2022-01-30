@@ -36,10 +36,11 @@ namespace e_comcerce
                 Response.Redirect("Default.aspx", false);
             }
             else
-            {
-                Response.Write("<script>alert('Usuario y/o Password incorrecto.')</script>");
+            {                
+                Response.Write("<script>alert('Usuario y/o Contraseña incorrecto.')</script>");
+                Response.Write("<script language='javascript'>alert('Usuario y/o Contraseña incorrectos.');</script>");
                 Session.Add("error", "user o pass incorrectos");
-                Response.Redirect("Login.aspx", false);
+                Response.Redirect("ErrorLogin.aspx", false);
             }
         }
     }

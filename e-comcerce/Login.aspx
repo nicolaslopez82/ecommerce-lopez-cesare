@@ -22,12 +22,12 @@
 
                             <div style="margin-bottom: 25px" class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                <asp:TextBox ID="UserName" runat="server" CssClass="form-control" placeholder="Ingrese Email..."></asp:TextBox>
+                                <asp:TextBox ID="UserName" runat="server" CssClass="form-control" type="email" placeholder="Ingrese Email..."></asp:TextBox>                                
                             </div>
 
                             <div style="margin-bottom: 25px" class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                <asp:TextBox ID="Password" runat="server" CssClass="form-control" placeholder="Ingrese Contraseña..." TextMode="Password"></asp:TextBox>
+                                <asp:TextBox ID="Password" runat="server" CssClass="form-control" min="5" placeholder="Ingrese Contraseña..." TextMode="Password"></asp:TextBox>                                
                             </div>
 
                             <div style="margin-top: 10px" class="form-group">
