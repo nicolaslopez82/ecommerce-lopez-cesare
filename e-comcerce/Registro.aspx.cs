@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using CapaDominio;
 using CapaNegocio;
+using System.Web.Services;
 
 namespace e_comcerce
 {
@@ -69,6 +70,6 @@ namespace e_comcerce
                     }
                 }
             }
-        }
+        }       
     }
 }

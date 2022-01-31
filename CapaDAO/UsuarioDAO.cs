@@ -85,10 +85,17 @@ namespace CapaDAO
 
                 if (dr.Read())
                 {
-                    objUsuario.ID = Convert.ToInt32(dr["IdUsuario"].ToString());                    
+                    objUsuario = new Usuario();
+                    objUsuario.ID = Convert.ToInt32(dr["IdUsuario"].ToString());
                     objUsuario.Email = dr["Usuario"].ToString();
                     objUsuario.Clave = dr["Clave"].ToString();
+                    objUsuario.Nombre = dr["Nombre"].ToString();
+                    objUsuario.Apellido = dr["Apellido"].ToString();
+                    objUsuario.Documento = dr["Documento"].ToString();
+                    objUsuario.Domicilio = dr["Domicilio"].ToString();
+                    objUsuario.Celular = dr["Celular"].ToString();
                     objUsuario.Estado = Convert.ToBoolean(dr["Estado"]);
+                    objUsuario.TipoUsuario = (int)(dr["TipoUsuario"]) == 1 ? TipoUsuario.ADMIN : TipoUsuario.COMPRADOR;
                 }
 
             }

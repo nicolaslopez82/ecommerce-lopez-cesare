@@ -80,21 +80,31 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
 
+
+                        <% if (Session["usuario"] != null)
+                            {  %>
+
                         <li><a runat="server" href="~/">Inicio</a></li>
                         <li><a runat="server" href="~/Productos">Productos</a></li>
                         <li><a runat="server" href="~/About">Acerca de</a></li>
                         <li><a runat="server" href="~/Contact">Contacto</a></li>
                         <li><a runat="server" href="~/Carrito">Carrito 🛒 </a></li>
-                        <% if (Session["usuario"] != null) {  %>
+
+                        <li class="nav-item">
+                            <a href="PerfilUsuario.aspx" role="button">
+                                <i class="glyphicon glyphicon-user"></i>
+                                <span id="idProfile">Ver Perfil</span>
+                            </a>
+                        </li>
 
                         <li class="nav-item">
                             <a href="#" role="button">
-                                <i class="glyphicon glyphicon-user"></i>
+                                <i class="glyphicon glyphicon-eye-close"></i>
                                 <span id="idClose">Cerrar Sesion</span>
                             </a>
                         </li>
 
-                        <% } %>                       
+                        <% } %>
                     </ul>
                 </div>
             </div>

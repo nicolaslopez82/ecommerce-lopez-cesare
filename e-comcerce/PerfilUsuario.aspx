@@ -1,7 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Registro.aspx.cs" Inherits="e_comcerce.Registro" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="PerfilUsuario.aspx.cs" Inherits="e_comcerce.PerfilUsuario" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>UTN E-Commerce | Registrar</title>
+     <title>UTN E-Commerce | Ver Perfil</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -12,11 +11,11 @@
                 <div class="col-md-8 col-md-offset-2 text-center">
                     <form class="form-signin">
                         <div class="form-group col-md-10 text-center">
-                        <h2 class="form-signin-heading">Registrar Cuenta</h2>                        
+                        <h2 class="form-signin-heading">Modificar Cuenta</h2>                        
                             </div>
                         
                         <div class="form-group col-md-8 col-md-offset-2 text-center">
-                            <asp:TextBox ID="RegisterNombre" runat="server" CssClass="form-control" Style="align: center" placeholder="Ingrese nombre..."></asp:TextBox>
+                            <asp:TextBox ID="PerfilNombre" runat="server" CssClass="form-control"></asp:TextBox>
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-user"></span>
@@ -24,7 +23,7 @@
                             </div>
                         </div>
                         <div class="form-group col-md-8 col-md-offset-2 text-center">
-                            <asp:TextBox ID="RegisterApellido" runat="server" CssClass="form-control" placeholder="Ingrese apellido..." TextMode="SingleLine"></asp:TextBox>
+                            <asp:TextBox ID="PerfilApellido" runat="server" CssClass="form-control" TextMode="SingleLine"></asp:TextBox>
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-user"></span>
@@ -32,7 +31,7 @@
                             </div>
                         </div>
                         <div class="form-group col-md-8 col-md-offset-2 text-center">
-                            <asp:TextBox ID="RegisterDNI" runat="server" CssClass="form-control" placeholder="Ingrese DNI..." TextMode="Number"></asp:TextBox>                           
+                            <asp:TextBox ID="PerfilDNI" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>                           
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-user"></span>
@@ -40,7 +39,7 @@
                             </div>
                         </div>
                         <div class="form-group col-md-8 col-md-offset-2 text-center">
-                            <asp:TextBox ID="RegisterDomicilio" runat="server" CssClass="form-control" placeholder="Ingrese Domicilio..." TextMode="SingleLine"></asp:TextBox>
+                            <asp:TextBox ID="PerfilDomicilio" runat="server" CssClass="form-control" TextMode="SingleLine"></asp:TextBox>
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-user"></span>
@@ -48,7 +47,7 @@
                             </div>
                         </div>
                         <div class="form-group col-md-8 col-md-offset-2 text-center">
-                            <asp:TextBox ID="RegisterCelular" runat="server" CssClass="form-control" placeholder="Ingrese Celular..." TextMode="Number"></asp:TextBox>
+                            <asp:TextBox ID="PerfilCelular" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-user"></span>
@@ -56,14 +55,14 @@
                             </div>
                         </div>
                         <div class="form-group col-md-8 col-md-offset-2 text-center">
-                            <asp:TextBox ID="RegisterUsuario" runat="server" CssClass="form-control" placeholder="Ingrese Usuario..." TextMode="Email"></asp:TextBox>
+                            <asp:TextBox ID="PerfilEmail" runat="server" CssClass="form-control" TextMode="Email"></asp:TextBox>
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-envelope"></span>
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group col-md-8 col-md-offset-2 text-center">
+                        <%--<div class="form-group col-md-8 col-md-offset-2 text-center">
                             <asp:TextBox ID="RegisterPassword" runat="server" CssClass="form-control" placeholder="Ingrese password..." TextMode="Password"></asp:TextBox>
                             <div class="input-group-append">
                                 <div class="input-group-text">
@@ -78,19 +77,18 @@
                                     <span class="fas fa-lock"></span>
                                 </div>
                             </div>
-                        </div>
-                        <div class="form-group col-md-8">
-                            <div class="icheck-primary">
-                                <input type="checkbox" id="agreeTerms" name="terms" value="agree">
-                                <label for="agreeTerms" >
-                                    Acepto los <a href="#">terminos</a>
-                                </label>
-                            </div>
-                        </div>
-
+                        </div>          --%>              
 
                         <div class="form-group col-md-8 col-md-offset-2 text-center">
-                            <asp:Button ID="btnRegistrar" runat="server" Text="Registrar" CssClass="btn btn-primary btn-block" OnClick="BtnRegistrar_Click"/>
+                            <asp:Button ID="btnGuardar" runat="server" Text="Guardar" CssClass="btn btn-success btn-block" OnClick="BtnGuardar_Click"/>
+                        </div>
+
+                        <div class="form-group col-md-8 col-md-offset-2 text-center">
+                            <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" CssClass="btn btn-primary btn-block" OnClick="BtnCancelar_Click"/>
+                        </div>
+
+                        <div class="form-group col-md-8 col-md-offset-2 text-center">
+                            <asp:Button ID="btnEliminarCuenta" runat="server" Text="Eliminar Cuenta" CssClass="btn btn-danger btn-block" OnClick="BtnEliminarCuenta_Click"/>
                         </div>
                         
                     </form>

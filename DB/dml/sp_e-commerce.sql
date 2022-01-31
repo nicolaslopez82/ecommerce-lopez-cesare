@@ -160,7 +160,7 @@ SELECT @IdUsuario = IdUsuario FROM Usuarios WHERE Usuario = @usuario;
 
 END
 GO
--- EXECUTE SP_AgregarUsuario 'nlopez@gmail.com','gogogo','e-commerce', 'Nicolas', 'Lopez', '290000001', 'Paunero 1856', '1500001111', 1, 1;
+EXECUTE SP_AgregarUsuario 'nlopez@gmail.com','gogogo','e-commerce', 'Nicolas', 'Lopez', '290000001', 'Paunero 1856', '1500001111', 1, 1;
 -- DROP PROCEDURE SP_AgregarUsuario;  
  
  
@@ -225,12 +225,23 @@ CREATE PROCEDURE SP_BuscarUsuarioPorEmail
 (@prmUsuario varchar(50))
 AS
 	BEGIN
-		SELECT U.idUsuario			
+		SELECT U.IdUsuario			
 			 , U.Usuario
+			 , U.Clave
+			 , U.Nombre
+			 , U.Apellido
+			 , U.Documento
+			 , U.Domicilio
+			 , U.Celular
+			 , U.Estado
+			 , U.TipoUsuario
+		
 		FROM Usuarios U 		
 		WHERE U.Usuario = @prmUsuario
 	END
 GO
+
+-- DROP PROCEDURE SP_BuscarUsuarioPorEmail; 
 
 /****** Object:  StoredProcedure SP_BuscarSiExisteUsuarioPorEmail ******/
 SET ANSI_NULLS ON

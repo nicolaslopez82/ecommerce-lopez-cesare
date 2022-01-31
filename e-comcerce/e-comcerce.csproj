@@ -129,11 +129,13 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="javascript\Perfil.js" />
     <Content Include="javascript\Logout.js" />
     <Content Include="javascript\RegistroValidaciones.js" />
     <Content Include="Login.aspx" />
     <Content Include="Logout.aspx" />
     <Content Include="ModificarProducto.aspx" />
+    <Content Include="PerfilUsuario.aspx" />
     <Content Include="Productos.aspx" />
     <Content Include="ProductosAdmin.aspx" />
     <Content Include="Registro.aspx" />
@@ -249,6 +251,13 @@
     </Compile>
     <Compile Include="ModificarProducto.aspx.designer.cs">
       <DependentUpon>ModificarProducto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PerfilUsuario.aspx.cs">
+      <DependentUpon>PerfilUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PerfilUsuario.aspx.designer.cs">
+      <DependentUpon>PerfilUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Productos.aspx.cs">
       <DependentUpon>Productos.aspx</DependentUpon>
