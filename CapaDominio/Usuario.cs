@@ -46,7 +46,7 @@ namespace CapaDominio
         {
             Email = email;
             Clave = clave;
-            TipoUsuario = admin ? TipoUsuario.ADMIN : TipoUsuario.COMPRADOR;
+            TipoUsuario = admin? TipoUsuario.ADMIN : TipoUsuario.COMPRADOR;
             Nombre = nombre;
             Apellido = apellido;
             Domicilio = domicilio;

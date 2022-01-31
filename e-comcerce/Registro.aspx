@@ -91,7 +91,7 @@
 
 
                         <div class="form-group col-md-8 col-md-offset-2 text-center">
-                            <asp:Button ID="btnRegistrar" runat="server" Text="Registrar" CssClass="btn btn-primary btn-block" />
+                            <asp:Button ID="btnRegistrar" runat="server" Text="Registrar" CssClass="btn btn-primary btn-block" OnClick="BtnRegistrar_Click"/>
                         </div>
 
                         <%-- el fmor de registoro fin --%>
@@ -108,6 +108,12 @@
             </div>
         </div>
         <!-- /container -->
+        <asp:TableRow runat="server">
+                           <asp:TableCell ColumnSpan="2" runat="server">
+                            <asp:Label runat="server" CssClass="alert-danger" ID="lblError"></asp:Label>
+                            <asp:Label runat="server" CssClass="alert-danger" ID="lblErrorContrasenia"></asp:Label>
+                           </asp:TableCell>
+                          </asp:TableRow>
     </layouttemplate>
 
 </asp:Content>
