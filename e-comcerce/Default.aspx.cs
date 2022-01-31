@@ -20,9 +20,12 @@ namespace e_comcerce
             urlimagen = "https://www.diariodesevilla.es/2021/10/13/wappissima/actualidad/Peninsula-Vintage-Clothing-tiendas-vintage_1619548404_145419545_1200x675.png";
             contacto = "Contact.aspx";
 
-            if (!(Session["usuario"] != null && ((Usuario)Session["usuario"]).TipoUsuario == TipoUsuario.ADMIN))            
+            if (!(Session["usuario"] != null &&
+                (
+                ((Usuario)Session["usuario"]).TipoUsuario == TipoUsuario.ADMIN) ||
+                ((Usuario)Session["usuario"]).TipoUsuario == TipoUsuario.COMPRADOR))            
             {
-                Session.Add("error", "No tienes permisos para ingresar a esta pantalla. Necesitas nivel admin.");
+                Session.Add("error", "No tienes permisos para ingresar a esta pantalla. Necesitas nivel ADMIN.");
                 Response.Redirect("Error.aspx", false);
             }            
         }
