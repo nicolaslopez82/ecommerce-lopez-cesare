@@ -25,7 +25,7 @@
                             </div>
                         </div>
                         <div class="form-group col-md-8 col-md-offset-2 text-center">
-                            <asp:TextBox ID="RegisterApellido" runat="server" CssClass="form-control" placeholder="Ingrese apellido..."></asp:TextBox>
+                            <asp:TextBox ID="RegisterApellido" runat="server" CssClass="form-control" placeholder="Ingrese apellido..." TextMode="SingleLine"></asp:TextBox>
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-user"></span>
@@ -33,7 +33,7 @@
                             </div>
                         </div>
                         <div class="form-group col-md-8 col-md-offset-2 text-center">
-                            <asp:TextBox ID="RegisterDNI" runat="server" CssClass="form-control" placeholder="Ingrese DNI..."></asp:TextBox>
+                            <asp:TextBox ID="RegisterDNI" runat="server" CssClass="form-control" placeholder="Ingrese DNI..." TextMode="Number"></asp:TextBox>                           
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-user"></span>
@@ -41,7 +41,7 @@
                             </div>
                         </div>
                         <div class="form-group col-md-8 col-md-offset-2 text-center">
-                            <asp:TextBox ID="RegisterDomicilio" runat="server" CssClass="form-control" placeholder="Ingrese Domicilio..."></asp:TextBox>
+                            <asp:TextBox ID="RegisterDomicilio" runat="server" CssClass="form-control" placeholder="Ingrese Domicilio..." TextMode="SingleLine"></asp:TextBox>
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-user"></span>
@@ -49,7 +49,7 @@
                             </div>
                         </div>
                         <div class="form-group col-md-8 col-md-offset-2 text-center">
-                            <asp:TextBox ID="RegisterCelular" runat="server" CssClass="form-control" placeholder="Ingrese Celular..."></asp:TextBox>
+                            <asp:TextBox ID="RegisterCelular" runat="server" CssClass="form-control" placeholder="Ingrese Celular..." TextMode="Number"></asp:TextBox>
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-user"></span>
@@ -57,7 +57,7 @@
                             </div>
                         </div>
                         <div class="form-group col-md-8 col-md-offset-2 text-center">
-                            <asp:TextBox ID="RegisterUsuario" runat="server" CssClass="form-control" placeholder="Ingrese Usuario..."></asp:TextBox>
+                            <asp:TextBox ID="RegisterUsuario" runat="server" CssClass="form-control" placeholder="Ingrese Usuario..." TextMode="Email"></asp:TextBox>
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-envelope"></span>
@@ -95,14 +95,6 @@
                         </div>
 
                         <%-- el fmor de registoro fin --%>
-
-
-
-
-
-                        <%--<div class="form-group col-md-8 col-md-offset-2 text-center">
-                        <button class="btn btn-md btn-primary btn-block" type="submit">Sign in</button>
-                        </div>--%>
                     </form>
                 </div>
             </div>
@@ -114,6 +106,7 @@
                             <asp:Label runat="server" CssClass="alert-danger" ID="lblErrorContrasenia"></asp:Label>
                            </asp:TableCell>
                           </asp:TableRow>
+
     </LayoutTemplate>
 
 </asp:Content>
