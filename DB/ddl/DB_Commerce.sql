@@ -5,22 +5,15 @@ GO
 
 CREATE TABLE Usuarios(
 	IdUsuario bigint not null PRIMARY KEY IDENTITY(1,1),	
-	Usuario varchar(50) not null unique,
+	Usuario varchar(50) not null unique, -- email
 	Clave varbinary(500) not null,
-	Estado bit not null,	
-	TipoUsuario int not null	
-);
-GO
-
-CREATE TABLE DatosUsuario(
-    IdDatosUsuario bigint not null PRIMARY KEY FOREIGN KEY REFERENCES Usuarios(IdUsuario),
-    Nombre varchar(100) not null,
+	Nombre varchar(100) not null,
     Apellido varchar(100) not null,
     Documento VARCHAR(8)not null,
     Domicilio varchar(150) null,
     Celular varchar(20)null,
-    Estado bit not null
-
+	Estado bit not null,	
+	TipoUsuario int not null	
 );
 GO
 
