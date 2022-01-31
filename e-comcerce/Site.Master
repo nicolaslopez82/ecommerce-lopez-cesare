@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
 
     <!-- Latest compiled and minified JavaScript -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+    <%--<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>--%>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
@@ -27,8 +27,10 @@
 
     <%-- Tomado desde la documentacion oficial de Bootstrap 3.4.1 Fin --%>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" type="text/javascript"></script>
+
     <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>       
+    </asp:ContentPlaceHolder>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -83,7 +85,16 @@
                         <li><a runat="server" href="~/About">Acerca de</a></li>
                         <li><a runat="server" href="~/Contact">Contacto</a></li>
                         <li><a runat="server" href="~/Carrito">Carrito 🛒 </a></li>
+                        <% if (Session["usuario"] != null) {  %>
 
+                        <li class="nav-item">
+                            <a href="#" role="button">
+                                <i class="glyphicon glyphicon-user"></i>
+                                <span id="idClose">Cerrar Sesion</span>
+                            </a>
+                        </li>
+
+                        <% } %>                       
                     </ul>
                 </div>
             </div>
@@ -102,6 +113,13 @@
 
 
     </form>
+
+    <script src="Scripts/bootstrap.min.js" type="text/javascript"></script>
+    <script src="Scripts/jquery-3.4.1.min.js" type="text/javascript"></script>
+    <script src="Scripts/modernizr-2.8.3.js" type="text/javascript"></script>
+    <script src="javascript/Logout.js" type="text/javascript"></script>
+
+
     <asp:ContentPlaceHolder ID="footer" runat="server"></asp:ContentPlaceHolder>
 </body>
 </html>
