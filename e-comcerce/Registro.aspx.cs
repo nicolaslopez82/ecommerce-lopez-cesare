@@ -51,7 +51,7 @@ namespace e_comcerce
                     {                        
                         Usuario usuarioAGuardar = new Usuario(RegisterUsuario.Text, RegisterPassword.Text, 
                                                                 true, false, RegisterNombre.Text, RegisterApellido.Text,
-                                                                RegisterDomicilio.Text, RegisterCelular.Text);
+                                                                RegisterDNI.Text, RegisterDomicilio.Text, RegisterCelular.Text);
                         bool usuarioRegistrado = UsuarioNegocio.getInstance().RegistrarUsuario(usuarioAGuardar);
                         if (usuarioRegistrado == true)
                         {

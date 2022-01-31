@@ -5,7 +5,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <layouttemplate>
+    <LayoutTemplate>
         <div class="container">
             <div class="row" style="padding-top: 12px;"></div>
             <div class="row">
@@ -114,7 +114,7 @@
                             <asp:Label runat="server" CssClass="alert-danger" ID="lblErrorContrasenia"></asp:Label>
                            </asp:TableCell>
                           </asp:TableRow>
-    </layouttemplate>
+    </LayoutTemplate>
 
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="footer" runat="server">

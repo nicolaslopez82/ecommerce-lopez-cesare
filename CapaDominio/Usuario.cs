@@ -42,13 +42,14 @@ namespace CapaDominio
         }
 
         public Usuario(string email, string clave, bool estado, bool admin, 
-            string nombre, string apellido, string domicilio, string celular)
+            string nombre, string apellido, string documento, string domicilio, string celular)
         {
             Email = email;
             Clave = clave;
             TipoUsuario = admin? TipoUsuario.ADMIN : TipoUsuario.COMPRADOR;
             Nombre = nombre;
             Apellido = apellido;
+            Documento = documento;
             Domicilio = domicilio;
             Celular = celular;
             Estado = true;
