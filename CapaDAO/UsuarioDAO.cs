@@ -205,11 +205,13 @@ namespace CapaDAO
 
                 while (dr.Read())
                 {
-                    Usuario objUsuario = new Usuario();
-                    objUsuario.ID = Convert.ToInt32(dr["idUsuario"].ToString());
-                    objUsuario.Email = dr["email"].ToString();
-                    objUsuario.Clave = dr["clave"].ToString();
-                    objUsuario.Estado = Convert.ToBoolean(dr["nroDocumento"]);                    
+                    Usuario objUsuario = new Usuario();                    
+                    objUsuario.Email = dr["Usuario"].ToString();
+                    objUsuario.Nombre = dr["Nombre"].ToString();
+                    objUsuario.Apellido = dr["Apellido"].ToString();
+                    objUsuario.Documento = dr["Documento"].ToString();
+                    objUsuario.Domicilio = dr["Domicilio"].ToString();
+                    objUsuario.Celular = dr["Celular"].ToString();                                        
 
                     Lista.Add(objUsuario);
                 }

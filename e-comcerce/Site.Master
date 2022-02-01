@@ -89,6 +89,7 @@
                         <li><a runat="server" href="~/About">Acerca de</a></li>
                         <li><a runat="server" href="~/Contact">Contacto</a></li>
                         <li><a runat="server" href="~/Carrito">Carrito 🛒 </a></li>
+                        <li><a runat="server" href="ListadoCompradores.aspx">Listado </a></li>
 
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Perfil <span class="caret"></span></a>
@@ -126,6 +127,11 @@
     <script src="javascript/Logout.js" type="text/javascript"></script>
     <script src="javascript/RegistroValidaciones.js" type="text/javascript"></script>
 
+    <script src="Scripts/jquery.dataTables.js"></script>
+    <script src="Scripts/dataTables.bootstrap.js"></script>
+    
+    <%--<link rel="stylesheet" src="//cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
+    <script src="//cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js" type="text/javascript"></script>--%>
 
     <asp:ContentPlaceHolder ID="footer" runat="server"></asp:ContentPlaceHolder>
 </body>

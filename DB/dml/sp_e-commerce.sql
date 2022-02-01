@@ -161,7 +161,8 @@ SELECT @IdUsuario = IdUsuario FROM Usuarios WHERE Usuario = @usuario;
 
 END
 GO
-EXECUTE SP_AgregarUsuario 'nlopez@gmail.com','gogogo','e-commerce', 'Nicolas', 'Lopez', '290000001', 'Paunero 1856', '1500001111', 1, 1;
+-- EXECUTE SP_AgregarUsuario 'nlopez@gmail.com','gogogo','e-commerce', 'Nicolas', 'Lopez', '290000001', 'Paunero 1856', '1500001111', 1, 1;
+-- EXECUTE SP_AgregarUsuario 'eharris@gmail.com','gogogo','e-commerce', 'Ed', 'Harris', '450000001', 'Delia 5618', '1599992222', 1, 2;
 -- DROP PROCEDURE SP_AgregarUsuario;  
  
  
@@ -292,16 +293,16 @@ AS
 BEGIN
 
 SELECT U.Usuario
-      ,U.Clave
-      ,U.Estado
-      ,U.TipoUsuario
+      --,U.Clave
+      --,U.Estado
+      --,U.TipoUsuario
 	  ,U.Nombre
       ,U.Apellido
       ,U.Documento
       ,U.Domicilio
       ,U.Celular
   FROM Usuarios U 
-  WHERE U.Estado = 1;
+  WHERE U.Estado = 1 AND U.TipoUsuario = 2;
 END
 GO
 
