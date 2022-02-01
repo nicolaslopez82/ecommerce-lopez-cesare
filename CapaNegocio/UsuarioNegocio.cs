@@ -101,11 +101,11 @@ namespace CapaNegocio
             }
         }
 
-        public bool Eliminar(int idUsuario)
+        public bool EliminarUsuario(string email)
         {
             try
             {
-                return UsuarioDAO.getInstance().Eliminar(idUsuario);
+                return UsuarioDAO.getInstance().EliminarUsuario(email);
             }
             catch (Exception ex)
             {

@@ -262,7 +262,7 @@ namespace CapaDAO
             return ok;
         }
 
-        public bool Eliminar(int idUsuario)
+        public bool EliminarUsuario(string email)
         {
             SqlConnection conexion = null;
             SqlCommand cmd = null;
@@ -271,7 +271,8 @@ namespace CapaDAO
             {
                 conexion = Conexion.getInstance().ConexionBD();
                 cmd = new SqlCommand("SP_EliminarUsuario", conexion);
-                cmd.Parameters.AddWithValue("@prmIdUsuario", idUsuario);
+                cmd.Parameters.AddWithValue("@prmUsuario", email);
+
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 conexion.Open();

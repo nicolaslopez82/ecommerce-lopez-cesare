@@ -55,7 +55,7 @@
                             </div>
                         </div>
                         <div class="form-group col-md-8 col-md-offset-2 text-center">
-                            <asp:TextBox ID="PerfilEmail" runat="server" CssClass="form-control" TextMode="Email" ></asp:TextBox>
+                            <asp:TextBox ID="PerfilEmail" runat="server" CssClass="form-control" TextMode="Email" ReadOnly="true"></asp:TextBox>
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-envelope"></span>
@@ -89,6 +89,7 @@
 
                         <div class="form-group col-md-8 col-md-offset-2 text-center">
                             <asp:Button ID="btnEliminarCuenta" runat="server" Text="Eliminar Cuenta" CssClass="btn btn-danger btn-block" OnClick="BtnEliminarCuenta_Click"/>
+                            <%--<asp:Button ID="btnEliminarCuenta" runat="server" Text="Eliminar Cuenta" CssClass="btn btn-danger btn-block" OnClick="ConfirmDelete()"/>--%>
                         </div>
                         
                     </form>

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.Services;
 using CapaDominio;
 using CapaNegocio;
 
@@ -70,13 +71,44 @@ namespace e_comcerce
 
         protected void BtnEliminarCuenta_Click(object sender, EventArgs e)
         {
+
             //alert confirmacion de eliminar cuenta
             //capturar email
+
             //getInstance.elminarUsuario(email);
             //elimino ok?
             //cerrarSession
             //redirect login.
+
+            Usuario usuarioAEliminar = new Usuario(PerfilEmail.Text, PerfilNombre.Text, PerfilApellido.Text,
+                                                      PerfilDNI.Text, PerfilDomicilio.Text, PerfilCelular.Text);
+
+            bool usuarioEliminado = UsuarioNegocio.getInstance().EliminarUsuario(PerfilEmail.Text);
+
+            if (usuarioEliminado)
+            {
+                Response.Write("<script language=javascript>alert('Usuario Eliminado Correctamente.')</script>");
+                HttpContext.Current.Session.Clear();
+                HttpContext.Current.Session.Abandon();
+                Response.Redirect("Login.aspx", false);
+            }
+            else
+            {
+                Response.Write("<script language=javascript>alert('Usuario No Eliminado.')</script>");
+                Response.Redirect("Default.aspx", false);
+            }
+            
         }
+
+        //[WebMethod]
+        //public static bool EliminarUsuario(string email) {
+
+        //    if (email.Length < 1)
+        //    {
+        //        return true;
+        //    }
+        //    else { return false; }
+        //}
 
         private void LimpiarCampos() {
             PerfilNombre.Text = "";

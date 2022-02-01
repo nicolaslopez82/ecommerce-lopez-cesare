@@ -178,7 +178,7 @@ AS
 BEGIN
 SELECT * 
 FROM Usuarios 
-WHERE Usuario = @usuario and CONVERT(VARCHAR(50),DECRYPTBYPASSPHRASE(@patron, Clave)) = @clave
+WHERE Usuario = @usuario and CONVERT(VARCHAR(50),DECRYPTBYPASSPHRASE(@patron, Clave)) = @clave and Estado = 1;
 END
 GO
 
