@@ -1,6 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="PerfilUsuario.aspx.cs" Inherits="e_comcerce.PerfilUsuario" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
      <title>UTN E-Commerce | Ver Perfil</title>
+
+    <script type="text/javascript">
+
+        function ConfirmarModificacion() { return confirm("Desea confirmar los cambios?"); }
+
+        function ConfirmarEliminacion() { return confirm("Desea confirmar la eliminacion de la cuenta?"); }
+    </script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -80,7 +88,7 @@
                         </div>          --%>              
 
                         <div class="form-group col-md-8 col-md-offset-2 text-center">
-                            <asp:Button ID="btnGuardar" runat="server" Text="Guardar" CssClass="btn btn-success btn-block" OnClick="BtnGuardar_Click"/>
+                            <asp:Button ID="btnGuardar" runat="server" Text="Guardar" CssClass="btn btn-success btn-block" OnClientClick="return ConfirmarModificacion();" OnClick="BtnGuardar_Click"/>
                         </div>
 
                         <div class="form-group col-md-8 col-md-offset-2 text-center">
@@ -88,7 +96,7 @@
                         </div>
 
                         <div class="form-group col-md-8 col-md-offset-2 text-center">
-                            <asp:Button ID="btnEliminarCuenta" runat="server" Text="Eliminar Cuenta" CssClass="btn btn-danger btn-block" OnClick="BtnEliminarCuenta_Click"/>
+                            <asp:Button ID="btnEliminarCuenta" runat="server" Text="Eliminar Cuenta" CssClass="btn btn-danger btn-block" OnClientClick="return ConfirmarEliminacion();"  OnClick="BtnEliminarCuenta_Click"/>
                             <%--<asp:Button ID="btnEliminarCuenta" runat="server" Text="Eliminar Cuenta" CssClass="btn btn-danger btn-block" OnClick="ConfirmDelete()"/>--%>
                         </div>
                         

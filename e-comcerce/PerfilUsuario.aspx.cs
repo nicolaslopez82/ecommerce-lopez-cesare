@@ -90,17 +90,7 @@ namespace e_comcerce
                 Response.Redirect("Default.aspx", false);
             }
             
-        }
-
-        //[WebMethod]
-        //public static bool EliminarUsuario(string email) {
-
-        //    if (email.Length < 1)
-        //    {
-        //        return true;
-        //    }
-        //    else { return false; }
-        //}
+        }      
 
         private void LimpiarCampos() {
             PerfilNombre.Text = "";
