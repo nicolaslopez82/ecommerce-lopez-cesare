@@ -70,15 +70,7 @@ namespace e_comcerce
         }
 
         protected void BtnEliminarCuenta_Click(object sender, EventArgs e)
-        {
-
-            //alert confirmacion de eliminar cuenta
-            //capturar email
-
-            //getInstance.elminarUsuario(email);
-            //elimino ok?
-            //cerrarSession
-            //redirect login.
+        {            
 
             Usuario usuarioAEliminar = new Usuario(PerfilEmail.Text, PerfilNombre.Text, PerfilApellido.Text,
                                                       PerfilDNI.Text, PerfilDomicilio.Text, PerfilCelular.Text);
