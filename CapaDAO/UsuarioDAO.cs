@@ -227,7 +227,7 @@ namespace CapaDAO
             return Lista;
         }
 
-        public bool Actualizar(Usuario objUsuario)
+        public bool ActualizarDatosUsuario(Usuario objUsuario)
         {
             bool ok = false;
             SqlConnection conexion = null;
@@ -236,10 +236,16 @@ namespace CapaDAO
             {
                 conexion = Conexion.getInstance().ConexionBD();
                 cmd = new SqlCommand("SP_ActualizarDatosUsuario", conexion);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@prmUsuario", objUsuario.Email);                                
-                cmd.Parameters.AddWithValue("@prmEstado", objUsuario.Estado);                           
                 
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@prmUsuario", objUsuario.Email);
+                cmd.Parameters.AddWithValue("@prmNombre", objUsuario.Nombre);
+                cmd.Parameters.AddWithValue("@prmApellido", objUsuario.Apellido);
+                cmd.Parameters.AddWithValue("@prmDocumento", objUsuario.Documento);
+                cmd.Parameters.AddWithValue("@prmDomicilio", objUsuario.Domicilio);
+                cmd.Parameters.AddWithValue("@prmCelular", objUsuario.Celular);
+
                 conexion.Open();
 
                 cmd.ExecuteNonQuery();

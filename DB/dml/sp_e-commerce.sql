@@ -293,26 +293,36 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE PROCEDURE SP_ActualizarDatosUsuario
 (@prmUsuario VARCHAR(50),
-@prmClave VARCHAR(50),
-@prmPatron VARCHAR(50),
 @prmNombre varchar(100),
 @prmApellido varchar(100),
 @prmDocumento varchar(8),
 @prmDomicilio varchar(150),
-@prmCelular varchar(20),
-@prmEstado BIT,
-@prmIdTipoUsuario INT)
+@prmCelular varchar(20))
 AS
 	BEGIN
+		BEGIN TRANSACTION
+		 SAVE TRANSACTION ActualizarDatosUsuario;
+			DECLARE @IdUsuario AS BIGINT
 
-		UPDATE Usuarios
-		SET 		
-		Usuarios.Nombre = @prmNombre,
-		Usuarios.Apellido = @prmApellido,				
-		Usuarios.Documento = @prmDocumento,
-		Usuarios.Domicilio = @prmDomicilio,
-		Usuarios.Celular = @prmCelular		
-		where Usuarios.IdUsuario = @prmUsuario		  
+			SELECT @IdUsuario = IdUsuario FROM Usuarios WHERE Usuario = @prmUsuario;
+
+			BEGIN TRY
+				UPDATE Usuarios
+				SET 		
+				Usuarios.Nombre = @prmNombre,
+				Usuarios.Apellido = @prmApellido,				
+				Usuarios.Documento = @prmDocumento,
+				Usuarios.Domicilio = @prmDomicilio,
+				Usuarios.Celular = @prmCelular		
+				WHERE Usuarios.IdUsuario = @IdUsuario	
+			COMMIT TRANSACTION 
+			END TRY
+			BEGIN CATCH
+				IF @@TRANCOUNT > 0
+				BEGIN
+					ROLLBACK TRANSACTION ActualizarDatosUsuario; -- rollback de ActualizarDatosUsuario
+				END
+			END CATCH
 	END
 GO
 

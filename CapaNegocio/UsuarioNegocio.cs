@@ -89,11 +89,11 @@ namespace CapaNegocio
             }
         }
 
-        public bool Actualizar(Usuario objUsuario)
+        public bool ActualizarDatosUsuario(Usuario objUsuario)
         {
             try
             {
-                return UsuarioDAO.getInstance().Actualizar(objUsuario);
+                return UsuarioDAO.getInstance().ActualizarDatosUsuario(objUsuario);
             }
             catch (Exception ex)
             {

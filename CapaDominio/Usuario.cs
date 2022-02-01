@@ -54,5 +54,16 @@ namespace CapaDominio
             Celular = celular;
             Estado = true;
         }
+
+        public Usuario(string email, string nombre, string apellido, string documento, string domicilio, string celular)
+        {
+            Email = email;            
+            Nombre = nombre;
+            Apellido = apellido;
+            Documento = documento;
+            Domicilio = domicilio;
+            Celular = celular;
+            Estado = true;
+        }
     }
 }
