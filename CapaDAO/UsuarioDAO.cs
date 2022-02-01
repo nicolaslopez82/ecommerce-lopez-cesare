@@ -235,9 +235,7 @@ namespace CapaDAO
             try
             {
                 conexion = Conexion.getInstance().ConexionBD();
-                cmd = new SqlCommand("SP_ActualizarDatosUsuario", conexion);
-                
-                cmd.CommandType = CommandType.StoredProcedure;
+                cmd = new SqlCommand("SP_ActualizarDatosUsuario", conexion);                               
 
                 cmd.Parameters.AddWithValue("@prmUsuario", objUsuario.Email);
                 cmd.Parameters.AddWithValue("@prmNombre", objUsuario.Nombre);
@@ -246,11 +244,12 @@ namespace CapaDAO
                 cmd.Parameters.AddWithValue("@prmDomicilio", objUsuario.Domicilio);
                 cmd.Parameters.AddWithValue("@prmCelular", objUsuario.Celular);
 
+                cmd.CommandType = CommandType.StoredProcedure;
+
                 conexion.Open();
 
-                cmd.ExecuteNonQuery();
-
-                ok = true;
+                int filas = cmd.ExecuteNonQuery();
+                if (filas > 0) ok = true;
             }
             catch (Exception ex)
             {

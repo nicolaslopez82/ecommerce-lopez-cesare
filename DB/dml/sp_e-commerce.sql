@@ -64,6 +64,7 @@ END
 
 SELECT TOP 1 * FROM Productos ORDER BY IdProducto DESC
 GO
+
 -- ///////////////// TERMINA PRODUCTOS /////////////////////////////--
 
 --/////////////// EMPIEZA FORMA DE PAGO ////////////////////////////-
@@ -207,15 +208,35 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE PROCEDURE SP_EliminarUsuario
-(@prmIdUsuario int)
+(@prmUsuario VARCHAR(50))
 AS
 	BEGIN
-		UPDATE Usuarios
-		SET Estado = 0
-		WHERE idUsuario = @prmIdUsuario
+		BEGIN TRANSACTION
+		 
+		SAVE TRANSACTION EliminarUsuario;
+		 
+		DECLARE @IdUsuario AS BIGINT
+		 
+		SELECT @IdUsuario = IdUsuario FROM Usuarios WHERE Usuario = @prmUsuario;
+		
+		BEGIN TRY
+				 
+			UPDATE Usuarios
+			SET Estado = 0
+			WHERE idUsuario = @IdUsuario
+		
+			COMMIT TRANSACTION 
+		END TRY
+		BEGIN CATCH
+				IF @@TRANCOUNT > 0
+				BEGIN
+					ROLLBACK TRANSACTION EliminarUsuario; -- rollback de EliminarUsuario.
+				END
+		END CATCH
 	END
 GO
 
+-- DROP PROCEDURE SP_EliminarUsuario
 /****** Object:  StoredProcedure SP_BuscarUsuarioPorEmail ******/
 SET ANSI_NULLS ON
 GO
@@ -327,5 +348,7 @@ AS
 GO
 
 -- DROP PROCEDURE [SP_ActualizarDatosUsuario];
+
+-- EXECUTE SP_ActualizarDatosUsuario 'max@gmail.com','jon','snow', '50222111', 'Italia 300', '1533331111';
 
 --///////////////// TERMINA USUARIOS ////////////////////

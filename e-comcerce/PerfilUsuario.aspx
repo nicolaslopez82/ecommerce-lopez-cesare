@@ -55,7 +55,7 @@
                             </div>
                         </div>
                         <div class="form-group col-md-8 col-md-offset-2 text-center">
-                            <asp:TextBox ID="PerfilEmail" runat="server" CssClass="form-control" TextMode="Email" disabled></asp:TextBox>
+                            <asp:TextBox ID="PerfilEmail" runat="server" CssClass="form-control" TextMode="Email" ></asp:TextBox>
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-envelope"></span>

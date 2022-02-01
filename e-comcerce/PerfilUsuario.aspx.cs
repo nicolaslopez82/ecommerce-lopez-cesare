@@ -50,15 +50,15 @@ namespace e_comcerce
 
                 bool usuarioModificado = UsuarioNegocio.getInstance().ActualizarDatosUsuario(usuarioAGuardar);
 
-                if (usuarioModificado == true)
+                if (usuarioModificado)
                 {
-                    Response.Write("<script>alert('Usuario Modificado Correctamente.')</script>");
-                    Response.Redirect("Default.aspx");
+                    Response.Write("<script language=javascript>alert('Usuario Modificado Correctamente.')</script>");                    
                 }
                 else
                 {
-                    Response.Write("<script>alert('Usuario No Modificado.')</script>");
+                    Response.Write("<script language=javascript>alert('Usuario No Modificado.')</script>");
                 }
+                Response.Redirect("Default.aspx", false);
             }
         }
 
@@ -70,6 +70,12 @@ namespace e_comcerce
 
         protected void BtnEliminarCuenta_Click(object sender, EventArgs e)
         {
+            //alert confirmacion de eliminar cuenta
+            //capturar email
+            //getInstance.elminarUsuario(email);
+            //elimino ok?
+            //cerrarSession
+            //redirect login.
         }
 
         private void LimpiarCampos() {
