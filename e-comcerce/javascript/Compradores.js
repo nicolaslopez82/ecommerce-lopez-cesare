@@ -75,11 +75,5 @@ function sendDataAjax() {
 // =================================================================================== //
 
 // Llamando a la funcion de ajax al cargar el documento.
-
-
-//document.addEventListener("DOMContentLoaded", function (event) {
-//    sendDataAjax();    //do work
-//});
-
 sendDataAjax();
 
