@@ -46,7 +46,7 @@ namespace CapaDAO
                 if (dr.Read())
                 {
                     objUsuario = new Usuario();
-                    objUsuario.ID = Convert.ToInt32(dr["IdUsuario"].ToString());
+                    objUsuario.IdUsuario = Convert.ToInt32(dr["IdUsuario"].ToString());
                     objUsuario.Email = dr["Usuario"].ToString();
                     objUsuario.Clave = dr["Clave"].ToString();
                     objUsuario.Estado = Convert.ToBoolean(dr["Estado"]);
@@ -86,7 +86,7 @@ namespace CapaDAO
                 if (dr.Read())
                 {
                     objUsuario = new Usuario();
-                    objUsuario.ID = Convert.ToInt32(dr["IdUsuario"].ToString());
+                    objUsuario.IdUsuario = Convert.ToInt32(dr["IdUsuario"].ToString());
                     objUsuario.Email = dr["Usuario"].ToString();
                     objUsuario.Clave = dr["Clave"].ToString();
                     objUsuario.Nombre = dr["Nombre"].ToString();
