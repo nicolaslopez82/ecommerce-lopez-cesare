@@ -8,7 +8,7 @@ namespace CapaDominio
 {
     public class Carro
     {
-        public int id { get; set; }
+        public int IdCarro { get; set; }
 
         public Productoss Producto { get; set; }
 

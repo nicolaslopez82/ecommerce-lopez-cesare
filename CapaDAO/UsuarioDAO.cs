@@ -45,12 +45,12 @@ namespace CapaDAO
                 dr = cmd.ExecuteReader();
                 if (dr.Read())
                 {
-                    objUsuario = new Usuario();                    
+                    objUsuario = new Usuario();
                     objUsuario.ID = Convert.ToInt32(dr["IdUsuario"].ToString());
                     objUsuario.Email = dr["Usuario"].ToString();
                     objUsuario.Clave = dr["Clave"].ToString();
                     objUsuario.Estado = Convert.ToBoolean(dr["Estado"]);
-                    objUsuario.TipoUsuario = (int)(dr["TipoUsuario"]) == 1 ? TipoUsuario.ADMIN : TipoUsuario.COMPRADOR;                    
+                    objUsuario.TipoUsuario = (int)(dr["TipoUsuario"]) == 1 ? TipoUsuario.ADMIN : TipoUsuario.COMPRADOR;
                 }
             }
             catch (Exception ex)
@@ -109,7 +109,7 @@ namespace CapaDAO
             }
 
             return objUsuario;
-        }        
+        }
 
         public bool BuscarSiExisteUsuarioPorEmail(String email)
         {
@@ -158,12 +158,12 @@ namespace CapaDAO
                 cmd.Parameters.AddWithValue("@clave", usuario.Clave);
                 cmd.Parameters.AddWithValue("@estado", usuario.Estado);
                 cmd.Parameters.AddWithValue("@patron", Patron);
-                
+
                 cmd.Parameters.AddWithValue("@nombre", usuario.Nombre);
                 cmd.Parameters.AddWithValue("@apellido", usuario.Apellido);
                 cmd.Parameters.AddWithValue("@documento", usuario.Documento);
                 cmd.Parameters.AddWithValue("@domicilio", usuario.Domicilio);
-                cmd.Parameters.AddWithValue("@celular", usuario.Celular);                
+                cmd.Parameters.AddWithValue("@celular", usuario.Celular);
 
                 cmd.CommandType = CommandType.StoredProcedure;
 
@@ -205,13 +205,13 @@ namespace CapaDAO
 
                 while (dr.Read())
                 {
-                    Usuario objUsuario = new Usuario();                    
+                    Usuario objUsuario = new Usuario();
                     objUsuario.Email = dr["Usuario"].ToString();
                     objUsuario.Nombre = dr["Nombre"].ToString();
                     objUsuario.Apellido = dr["Apellido"].ToString();
                     objUsuario.Documento = dr["Documento"].ToString();
                     objUsuario.Domicilio = dr["Domicilio"].ToString();
-                    objUsuario.Celular = dr["Celular"].ToString();                                        
+                    objUsuario.Celular = dr["Celular"].ToString();
 
                     Lista.Add(objUsuario);
                 }
@@ -233,11 +233,11 @@ namespace CapaDAO
         {
             bool ok = false;
             SqlConnection conexion = null;
-            SqlCommand cmd = null;            
+            SqlCommand cmd = null;
             try
             {
                 conexion = Conexion.getInstance().ConexionBD();
-                cmd = new SqlCommand("SP_ActualizarDatosUsuario", conexion);                               
+                cmd = new SqlCommand("SP_ActualizarDatosUsuario", conexion);
 
                 cmd.Parameters.AddWithValue("@prmUsuario", objUsuario.Email);
                 cmd.Parameters.AddWithValue("@prmNombre", objUsuario.Nombre);
@@ -280,7 +280,7 @@ namespace CapaDAO
                 conexion.Open();
 
                 cmd.ExecuteNonQuery();
-                
+
                 ok = true;
 
             }

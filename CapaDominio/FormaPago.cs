@@ -8,7 +8,7 @@ namespace CapaDominio
 {
   public  class FormaPago
     {
-        public int ID { get; set; }
+        public int IdFormaPago { get; set; }
 
         public string Descripcion { get; set; }
 
