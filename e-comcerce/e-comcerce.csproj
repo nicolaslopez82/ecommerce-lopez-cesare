@@ -115,6 +115,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="EliminarProducto.aspx" />
+    <Content Include="Error.aspx" />
+    <Content Include="ErrorLogin.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -127,10 +129,19 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="javascript\Compradores.js" />
+    <Content Include="javascript\EliminarUsuarioConfirmar.js" />
+    <Content Include="javascript\Perfil.js" />
+    <Content Include="javascript\Logout.js" />
+    <Content Include="javascript\RegistroValidaciones.js" />
+    <Content Include="ListadoCompradores.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="Logout.aspx" />
     <Content Include="ModificarProducto.aspx" />
+    <Content Include="PerfilUsuario.aspx" />
     <Content Include="Productos.aspx" />
     <Content Include="ProductosAdmin.aspx" />
+    <Content Include="Registro.aspx" />
     <Content Include="RegistroProducto.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -206,8 +217,29 @@
     <Compile Include="EliminarProducto.aspx.designer.cs">
       <DependentUpon>EliminarProducto.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorLogin.aspx.cs">
+      <DependentUpon>ErrorLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ErrorLogin.aspx.designer.cs">
+      <DependentUpon>ErrorLogin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="ListadoCompradores.aspx.cs">
+      <DependentUpon>ListadoCompradores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListadoCompradores.aspx.designer.cs">
+      <DependentUpon>ListadoCompradores.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -216,12 +248,26 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ModificarProducto.aspx.cs">
       <DependentUpon>ModificarProducto.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ModificarProducto.aspx.designer.cs">
       <DependentUpon>ModificarProducto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PerfilUsuario.aspx.cs">
+      <DependentUpon>PerfilUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PerfilUsuario.aspx.designer.cs">
+      <DependentUpon>PerfilUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Productos.aspx.cs">
       <DependentUpon>Productos.aspx</DependentUpon>
@@ -238,6 +284,13 @@
       <DependentUpon>ProductosAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registro.aspx.cs">
+      <DependentUpon>Registro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registro.aspx.designer.cs">
+      <DependentUpon>Registro.aspx</DependentUpon>
+    </Compile>
     <Compile Include="RegistroProducto.aspx.cs">
       <DependentUpon>RegistroProducto.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -49,7 +49,12 @@ namespace e_comcerce
             //Para la venta
             Ventas objVenta = new Ventas();
             //  Este tiene que sacar del session el usuario
-            objVenta.ID_Usuario = 1;
+
+            string email = Session["userName"].ToString();
+            Usuario usuario = UsuarioNegocio.getInstance().BuscarUsuarioPorEmail(email);
+
+            objVenta.ID_Usuario = usuario.ID;
+
             //
             objVenta.ID_FormaPago = int.Parse(dropFormaPago.SelectedItem.Value);
             objVenta.DescripcionVenta = txtAclaracion.Text;

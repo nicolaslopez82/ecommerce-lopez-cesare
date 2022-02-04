@@ -44,7 +44,6 @@
     <Compile Include="AdminComerce.cs" />
     <Compile Include="Categoria.cs" />
     <Compile Include="Contacto.cs" />
-    <Compile Include="DatosUsuarios.cs" />
     <Compile Include="DetalleVenta.cs" />
     <Compile Include="FormaPago.cs" />
     <Compile Include="Productoss.cs" />
