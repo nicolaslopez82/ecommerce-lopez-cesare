@@ -7,10 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-
-namespace e_comcerce
-{
-    public partial class ErrorLogin
-    {
+namespace e_comcerce {
+    
+    
+    public partial class ErrorLogin {
     }
 }
