@@ -13,13 +13,13 @@ namespace CapaDAO
    public class DetalleVentaDAO
     {
         #region "PATRON SINGLETON"
-        private static DetalleVentaDAO daoDetalleVenta= null;
+        private static DetalleVentaDAO daoDetalleVenta = null;
         private DetalleVentaDAO() { }
         public static DetalleVentaDAO getInstance()
         {
-            if (daoDetalleVenta== null)
+            if (daoDetalleVenta == null)
             {
-                daoDetalleVenta= new DetalleVentaDAO();
+                daoDetalleVenta = new DetalleVentaDAO();
             }
             return daoDetalleVenta;
         }
@@ -42,7 +42,7 @@ namespace CapaDAO
 
                 if (dr.Read())
                 {
-                    ID = Convert.ToInt32(dr["ID"].ToString());
+                    ID = Convert.ToInt32(dr["IdProducto"].ToString());
                 }
 
                
@@ -71,8 +71,8 @@ namespace CapaDAO
                     cmd = new SqlCommand("SP_RegistrarDetalle", con);
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
-                    cmd.Parameters.AddWithValue("@idventa", objDetalle.ID_Venta.ID);
-                    cmd.Parameters.AddWithValue("@idproducto", objDetalle.ID_Producto.ID);
+                    cmd.Parameters.AddWithValue("@idventa", objDetalle.IdVenta.IdVenta);
+                    cmd.Parameters.AddWithValue("@idproducto", objDetalle.IdProducto.IdProducto);
                     cmd.Parameters.AddWithValue("@precio", objDetalle.Precio);
                     cmd.Parameters.AddWithValue("@cantidad", objDetalle.Cantidad);
 
