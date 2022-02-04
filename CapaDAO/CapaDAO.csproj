@@ -48,9 +48,9 @@
     <Compile Include="VentaDAO.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CapaAccesoDato\CapaAccesoDato.csproj">
+    <ProjectReference Include="..\CapaAccesoDato\CapaAccesoDatos.csproj">
       <Project>{f4ad29ad-6958-499a-9fae-32e989be9c96}</Project>
-      <Name>CapaAccesoDato</Name>
+      <Name>CapaAccesoDatos</Name>
     </ProjectReference>
     <ProjectReference Include="..\CapaDominio\CapaDominio.csproj">
       <Project>{c0f90655-29f5-4748-9409-e84c5c56e86b}</Project>

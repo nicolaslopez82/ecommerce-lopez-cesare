@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30611.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "e-comcerce", "e-comcerce\e-comcerce.csproj", "{3458D29C-19DA-4204-B8EB-8F05549C82DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaAccesoDato", "CapaAccesoDato\CapaAccesoDato.csproj", "{F4AD29AD-6958-499A-9FAE-32E989BE9C96}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaAccesoDatos", "CapaAccesoDato\CapaAccesoDatos.csproj", "{F4AD29AD-6958-499A-9FAE-32E989BE9C96}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaDominio", "CapaDominio\CapaDominio.csproj", "{C0F90655-29F5-4748-9409-E84C5C56E86B}"
 EndProject
