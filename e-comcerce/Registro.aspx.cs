@@ -49,8 +49,8 @@ namespace e_comcerce
                     bool existeUsuario = UsuarioNegocio.getInstance().BuscarSiExisteUsuarioPorEmail(RegisterUsuario.Text);
 
                     if (!existeUsuario)
-                    {                        
-                        Usuario usuarioAGuardar = new Usuario(RegisterUsuario.Text, RegisterPassword.Text, 
+                    {
+                        Usuario usuarioAGuardar = new Usuario(RegisterUsuario.Text, RegisterPassword.Text,
                                                                 true, false, RegisterNombre.Text, RegisterApellido.Text,
                                                                 RegisterDNI.Text, RegisterDomicilio.Text, RegisterCelular.Text);
                         bool usuarioRegistrado = UsuarioNegocio.getInstance().RegistrarUsuario(usuarioAGuardar);
@@ -70,6 +70,6 @@ namespace e_comcerce
                     }
                 }
             }
-        }       
+        }
     }
 }

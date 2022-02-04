@@ -130,6 +130,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="IndexAdmin.aspx" />
+    <Content Include="ListadoCompradores.aspx" />
     <Content Include="ListaEliminar.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Logout.aspx" />
@@ -137,6 +138,7 @@
     <Content Include="PerfilUsuario.aspx" />
     <Content Include="Productos.aspx" />
     <Content Include="ProductosAdmin.aspx" />
+    <Content Include="Registro.aspx" />
     <Content Include="RegistroProducto.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -236,6 +238,13 @@
     <Compile Include="IndexAdmin.aspx.designer.cs">
       <DependentUpon>IndexAdmin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ListadoCompradores.aspx.cs">
+      <DependentUpon>ListadoCompradores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListadoCompradores.aspx.designer.cs">
+      <DependentUpon>ListadoCompradores.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ListaEliminar.aspx.cs">
       <DependentUpon>ListaEliminar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -286,6 +295,13 @@
       <DependentUpon>ProductosAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registro.aspx.cs">
+      <DependentUpon>Registro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registro.aspx.designer.cs">
+      <DependentUpon>Registro.aspx</DependentUpon>
+    </Compile>
     <Compile Include="RegistroProducto.aspx.cs">
       <DependentUpon>RegistroProducto.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
