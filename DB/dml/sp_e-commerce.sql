@@ -1,3 +1,6 @@
+--===========================================
+--=== m-puente-m/DB/dml/sp_e-commerce.sql ===
+--===========================================
 
 --//////////////// EMPIEZA PRODUCTOS ///////////////////
 
@@ -59,16 +62,69 @@ CREATE PROCEDURE SP_EliminarProducto
 )
 AS
 BEGIN
-DELETE FROM Productos WHERE IdProducto = @idProducto
+-- DELETE FROM Productos WHERE IdProducto = @idProducto
+	UPDATE Productos SET Estado = 0 where IdProducto = @idProducto
 END
 
-SELECT TOP 1 * FROM Productos ORDER BY IdProducto DESC
+-- SELECT TOP 1 * FROM Productos ORDER BY IdProducto DESC
 GO
 
+CREATE PROCEDURE SP_ValidarStock
+(
+    @idProducto bigint,
+    @cantidad bigint
+)
+AS
+BEGIN
+
+    SELECT COUNT(*) AS r FROM Productos WHERE IdProducto = @idproducto AND Stock >= @cantidad 
+     
+    
+END
+
+
+CREATE PROCEDURE SP_BajaStock
+(
+    @idProducto bigint
+)
+AS 
+BEGIN
+
+UPDATE Productos SET Stock = Stock -1 WHERE IdProducto = @idProducto
+
+END
+
+CREATE PROCEDURE SP_AltaStock
+(
+    @idProducto bigint
+)
+AS
+BEGIN
+
+UPDATE Productos SET Stock = Stock +1 WHERE IdProducto = @idProducto
+
+END
+
+CREATE PROCEDURE SP_BuscarProducto
+(
+    @idProducto bigint
+)
+AS
+BEGIN
+SELECT p.IdProducto,
+        p.Descripcion,
+        p.Estado,
+        p.IdCategoria,
+        p.Precio,
+        p.Stock,
+        p.UrlImagen
+FROM Productos AS P WHERE p.IdProducto = @idProducto
+
+END
 -- ///////////////// TERMINA PRODUCTOS /////////////////////////////--
 
 --/////////////// EMPIEZA FORMA DE PAGO ////////////////////////////-
-CREATE PROCEDURE SP_ListaFormaPAgo
+CREATE PROCEDURE SP_ListaFormaPago
 AS
 BEGIN
 
