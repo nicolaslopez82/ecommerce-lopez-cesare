@@ -38,7 +38,7 @@ namespace CapaDAO
                 con = Conexion.getInstance().ConexionBD();
                 cmd = new SqlCommand("SP_AgregarProducto", con);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idCategoria",objProducto.IdCategoria.ID);
+                cmd.Parameters.AddWithValue("@idCategoria",objProducto.IdCategoria.IdCategoria);
                 cmd.Parameters.AddWithValue("@descripcion", objProducto.Descripcion);
                 cmd.Parameters.AddWithValue("@stock", objProducto.Stock);
                 cmd.Parameters.AddWithValue("@precio", objProducto.Precio);
@@ -222,9 +222,9 @@ namespace CapaDAO
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
                 
-                cmd.Parameters.AddWithValue("@id", objProducto.IdProducto);
+                cmd.Parameters.AddWithValue("@idProducto", objProducto.IdProducto);
                 cmd.Parameters.AddWithValue("@idCategoria", objProducto.IdCategoria.IdCategoria);
-                cmd.Parameters.AddWithValue("@Descripcion", objProducto.Descripcion);
+                cmd.Parameters.AddWithValue("@descripcion", objProducto.Descripcion);
                 cmd.Parameters.AddWithValue("@stock", objProducto.Stock);
                 cmd.Parameters.AddWithValue("@precio", objProducto.Precio);
                 cmd.Parameters.AddWithValue("@urlImagen", objProducto.UrlImagen);
