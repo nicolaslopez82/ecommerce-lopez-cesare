@@ -36,22 +36,22 @@ namespace e_comcerce
                 
             }
 
-            if (Request.QueryString["id"] != null)
+            if (Request.QueryString["IdProducto"] != null)
             {
-                string id = Request.QueryString["id"].ToString();
+                string IdProducto = Request.QueryString["IdProducto"].ToString();
                 carrito = (List<Carro>)Session["carrito"];
                 listaProductos = (List<Productoss>)Session["listaproducto"];
                  Carro objCarrito = new Carro();
                 int aux = 0;
 
-                int idAux = int.Parse(id);
+                int idAux = int.Parse(IdProducto);
 
                 if (ProductoNegocio.getInstance().ValidarStock(idAux, 1)==true)
                 {
                     foreach (Carro item2 in carrito)
                     {
 
-                        if (int.Parse(id) == item2.Producto.ID)
+                        if (int.Parse(IdProducto) == item2.Producto.IdProducto)
                         {
 
                             item2.Cantidad++;
@@ -66,7 +66,7 @@ namespace e_comcerce
                         {
 
 
-                            if (item.ID == int.Parse(id))
+                            if (item.IdProducto == int.Parse(IdProducto))
                             {
 
 

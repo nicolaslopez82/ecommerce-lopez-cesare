@@ -8,9 +8,9 @@ namespace CapaDominio
 {
    public class Productoss
     {
-        public int ID { get; set; }
+        public int IdProducto { get; set; }
 
-        public Categoria ID_Categoria { get; set; }
+        public Categoria IdCategoria { get; set; }
 
         public string Descripcion { get; set; }
 
@@ -20,7 +20,7 @@ namespace CapaDominio
 
         public bool Estado { get; set; }
 
-        public string URLimagen { get; set; }
+        public string UrlImagen { get; set; }
 
 
     }

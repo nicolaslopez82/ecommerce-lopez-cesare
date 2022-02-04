@@ -28,7 +28,7 @@ namespace CapaDAO
         
 
 
-        public bool registrarProducto(Productoss objProducto)
+        public bool RegistrarProducto(Productoss objProducto)
         {
             SqlConnection con = null;
             SqlCommand cmd = null;
@@ -38,11 +38,11 @@ namespace CapaDAO
                 con = Conexion.getInstance().ConexionBD();
                 cmd = new SqlCommand("SP_AgregarProducto", con);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idCategoria",objProducto.ID_Categoria.ID);
-                cmd.Parameters.AddWithValue("@Descripcion", objProducto.Descripcion);
+                cmd.Parameters.AddWithValue("@idCategoria",objProducto.IdCategoria.ID);
+                cmd.Parameters.AddWithValue("@descripcion", objProducto.Descripcion);
                 cmd.Parameters.AddWithValue("@stock", objProducto.Stock);
                 cmd.Parameters.AddWithValue("@precio", objProducto.Precio);
-                cmd.Parameters.AddWithValue("@urlImagen", objProducto.URLimagen);
+                cmd.Parameters.AddWithValue("@urlImagen", objProducto.UrlImagen);
                 con.Open();
 
                 int filas = cmd.ExecuteNonQuery();
@@ -110,7 +110,7 @@ namespace CapaDAO
 
 
 
-        public bool validarstock(int ID, int cantidad)
+        public bool ValidarStock(int idProducto, int cantidad)
         {
             SqlConnection con = null;
             SqlCommand cmd = null;
@@ -122,7 +122,7 @@ namespace CapaDAO
                 con = Conexion.getInstance().ConexionBD();
                 cmd = new SqlCommand("SP_ValidarStock", con);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idproducto", ID);
+                cmd.Parameters.AddWithValue("@idProducto", idProducto);
                 cmd.Parameters.AddWithValue("@cantidad", cantidad);
 
                 con.Open();
@@ -180,14 +180,14 @@ namespace CapaDAO
                     while (dr.Read())
                     {
                         Productoss obj = new Productoss();
-                        obj.ID = Convert.ToInt32(dr["ID"].ToString()) ;
-                        obj.ID_Categoria = new Categoria();
-                        obj.ID_Categoria.ID = Convert.ToInt32( dr["ID_Categoria"].ToString());
+                        obj.IdProducto = Convert.ToInt32(dr["IdProducto"].ToString()) ;
+                        obj.IdCategoria = new Categoria();
+                        obj.IdCategoria.IdCategoria = Convert.ToInt32( dr["IdCategoria"].ToString());
 
                         obj.Descripcion = dr["Descripcion"].ToString();
                         obj.Stock = Convert.ToInt32( dr["Stock"].ToString());
                         obj.Precio = Convert.ToDecimal (dr["Precio"].ToString());
-                        obj.URLimagen = dr["UrlImagen"].ToString();
+                        obj.UrlImagen = dr["UrlImagen"].ToString();
 
                         Lista.Add(obj);
                     }
@@ -222,12 +222,12 @@ namespace CapaDAO
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
                 
-                cmd.Parameters.AddWithValue("@id", objProducto.ID);
-                cmd.Parameters.AddWithValue("@idCategoria", objProducto.ID_Categoria.ID);
+                cmd.Parameters.AddWithValue("@id", objProducto.IdProducto);
+                cmd.Parameters.AddWithValue("@idCategoria", objProducto.IdCategoria.IdCategoria);
                 cmd.Parameters.AddWithValue("@Descripcion", objProducto.Descripcion);
                 cmd.Parameters.AddWithValue("@stock", objProducto.Stock);
                 cmd.Parameters.AddWithValue("@precio", objProducto.Precio);
-                cmd.Parameters.AddWithValue("@urlImagen", objProducto.URLimagen);
+                cmd.Parameters.AddWithValue("@urlImagen", objProducto.UrlImagen);
                 con.Open();
 
                 int filas = cmd.ExecuteNonQuery();
@@ -246,7 +246,7 @@ namespace CapaDAO
             return response;
         }
 
-        public bool EliminarProducto(int ID_Producto)
+        public bool EliminarProducto(int IdProducto)
         {
             SqlConnection con = null;
             SqlCommand cmd = null;
@@ -256,7 +256,7 @@ namespace CapaDAO
             {
                 con = Conexion.getInstance().ConexionBD();
                 cmd = new SqlCommand("SP_EliminarProducto", con);
-                cmd.Parameters.AddWithValue("@ID", ID_Producto);
+                cmd.Parameters.AddWithValue("@idProducto", IdProducto);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
                 con.Open();
@@ -277,7 +277,7 @@ namespace CapaDAO
             return response;
         }
 
-        public bool BajaStock(int ID)
+        public bool BajaStock(int idProducto)
         {
             SqlConnection con = null;
             SqlCommand cmd = null;
@@ -287,7 +287,7 @@ namespace CapaDAO
             {
                 con = Conexion.getInstance().ConexionBD();
                 cmd = new SqlCommand("SP_BajaStock", con);
-                cmd.Parameters.AddWithValue("@idproducto", ID);
+                cmd.Parameters.AddWithValue("@idProducto", idProducto);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
                 con.Open();
@@ -308,7 +308,7 @@ namespace CapaDAO
             return response;
         }
 
-        public bool AltaStock(int ID)
+        public bool AltaStock(int idProducto)
         {
             SqlConnection con = null;
             SqlCommand cmd = null;
@@ -318,7 +318,7 @@ namespace CapaDAO
             {
                 con = Conexion.getInstance().ConexionBD();
                 cmd = new SqlCommand("SP_AltaStock", con);
-                cmd.Parameters.AddWithValue("@idproducto", ID);
+                cmd.Parameters.AddWithValue("@idProducto", idProducto);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
                 con.Open();
