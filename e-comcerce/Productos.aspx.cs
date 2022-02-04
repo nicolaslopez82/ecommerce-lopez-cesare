@@ -14,7 +14,12 @@ namespace e_comcerce
     {
         public List<Productoss> listaProductos { get; set; }
 
-        private List<Productoss> carrito { get; set; }
+        private List<Carro> carrito { get; set; }
+
+        public decimal Total = 0;
+        
+
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -24,22 +29,77 @@ namespace e_comcerce
 
                 if (Session["carrito"] == null)
                 {
-                    carrito = new List<Productoss>();
+                    carrito = new List<Carro>();
                     Session.Add("carrito", carrito);
                 }
+
+                
             }
 
             if (Request.QueryString["id"] != null)
             {
                 string id = Request.QueryString["id"].ToString();
-                carrito = (List<Productoss>)Session["carrito"];
+                carrito = (List<Carro>)Session["carrito"];
                 listaProductos = (List<Productoss>)Session["listaproducto"];
-                carrito.Add(listaProductos.Find(x => x.ID == int.Parse(id)));
-                Session.Add("carrito", carrito);
+                 Carro objCarrito = new Carro();
+                int aux = 0;
+
+                int idAux = int.Parse(id);
+
+                if (ProductoNegocio.getInstance().ValidarStock(idAux, 1)==true)
+                {
+                    foreach (Carro item2 in carrito)
+                    {
+
+                        if (int.Parse(id) == item2.Producto.ID)
+                        {
+
+                            item2.Cantidad++;
+                            aux = 1;
+                            bool ok = ProductoNegocio.getInstance().BajaStock(idAux);
+                        }
+                    }
+
+                    if (aux == 0)
+                    {
+                        foreach (Productoss item in listaProductos)
+                        {
+
+
+                            if (item.ID == int.Parse(id))
+                            {
+
+
+                                objCarrito.Producto = new Productoss();
+                                objCarrito.Producto = item;
+                                objCarrito.Cantidad = 1;
+                                objCarrito.id = 1;
+
+                                bool ok = ProductoNegocio.getInstance().BajaStock(idAux);
+                            }
+                        }
+                        carrito.Add(objCarrito);
+                    }
+
+
+
+                    Session.Add("carrito", carrito);
+                    Response.Redirect("Productos.aspx");
+                }
+                else
+                {
+                    Response.Redirect("errorStock.aspx");
+                }
+
+                
+
+               
 
                 
 
             }
+
+
 
         }
     }

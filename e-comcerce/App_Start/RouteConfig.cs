@@ -10,12 +10,8 @@ namespace e_comcerce
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
-            // Resolucion de error 401 al cerrar sesion:
-            // https://stackoverflow.com/questions/23033614/asp-net-calling-webmethod-with-jquery-ajax-401-unauthorized
-
             var settings = new FriendlyUrlSettings();
-            //settings.AutoRedirectMode = RedirectMode.Permanent;
-            settings.AutoRedirectMode = RedirectMode.Off;
+            settings.AutoRedirectMode = RedirectMode.Permanent;
             routes.EnableFriendlyUrls(settings);
         }
     }

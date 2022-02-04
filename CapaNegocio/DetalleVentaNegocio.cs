@@ -38,11 +38,11 @@ namespace CapaNegocio
             }
         }
 
-        public bool RegistrarDetalle(List<DetalleVenta> listaDetalle)
+        public bool RegistrarDetalle(DetalleVenta objDetalle)
         {
             try
             {
-                return DetalleVentaDAO.getInstance().RegistrarDetalle(listaDetalle);
+                return DetalleVentaDAO.getInstance().RegistrarDetalle(objDetalle);
 
             }
             catch (Exception ex)

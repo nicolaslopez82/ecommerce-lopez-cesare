@@ -12,36 +12,59 @@ namespace e_comcerce
 {
     public partial class Carrito : System.Web.UI.Page
     {
-        public List<Productoss> carrito { get; set; }
+        public List<Carro> carrito { get; set; }
 
         public decimal total  { get; set; }
+
+        public int aux =0;
 
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            total = 0;
-            carrito = new List<Productoss>();
-            carrito = (List<Productoss>)Session["carrito"];
+          
+            carrito = new List<Carro>();
+            carrito = (List<Carro>)Session["carrito"];
 
-            foreach (Productoss pro in carrito)
+
+            foreach (Carro item in carrito)
             {
-                total += pro.Precio;
+                total += item.Producto.Precio * item.Cantidad;
             }
+          
 
            
             if (Request.QueryString["id"] != null)
             {
                 string id = Request.QueryString["id"].ToString();
 
-                foreach (Productoss pro2 in carrito)
+                int idAux = int.Parse(id);
+                
+                foreach (Carro pro2 in carrito)
                 {
-                    if(pro2.ID== Convert.ToInt32(id))
+                    if(pro2.Producto.ID== Convert.ToInt32(id))
                     {
-                        total = total - pro2.Precio;
+                        total = total - pro2.Producto.Precio;
+                        if (pro2.Cantidad > 1)
+                        {
+                            pro2.Cantidad--;
+                            bool ok = ProductoNegocio.getInstance().AltaStock(idAux);
+                        }
+                        else
+                        {
+                            aux = 1;
+                        }
+                        
                     }
                 }
 
-                carrito.Remove(carrito.Find(x => x.ID == int.Parse(id)));
+                if (aux == 1)
+                {
+                    carrito.Remove(carrito.Find(x => x.Producto.ID == int.Parse(id)));
+
+                    bool ok = ProductoNegocio.getInstance().AltaStock(idAux);
+                }
+                
+
                 Session.Add("carrito", carrito);
 
                

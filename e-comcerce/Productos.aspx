@@ -14,6 +14,10 @@
         <div class="card-body">
             <h5 class="card-title">$ <%: pro.Precio %></h5>
             <p class="card-text"> <%: pro.Descripcion %></p>
+            <% if (pro.Stock == 0)
+                { %>
+            <p class="card-text" style="color:red"> !Producto Sin Stock!</p>
+            <%} %>
             <a href="Productos.aspx?id=<%: pro.ID %>" style="border-radius:20px;" class="btn btn-success">Añadir al carrito 🛒</a>
         </div>
     </div>

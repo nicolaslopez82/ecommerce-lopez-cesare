@@ -8,8 +8,8 @@ namespace CapaAccesoDatos
     {
         #region "PATRON SINGLETON"
         private static Conexion conexion = null;
-        private static string connectionString = "server=.\\SQLEXPRESS; database=Commerce; integrated security=true";
-        private static string patron = "e-commerce";
+        private static string connectionString = "server=.\\SQLEXPRESS; database=Comerce; integrated security=true";
+        private static string patron = "e-comerce";
         private Conexion() { }
         public static Conexion getInstance()
         {

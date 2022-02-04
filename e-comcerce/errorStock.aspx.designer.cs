@@ -11,7 +11,7 @@ namespace e_comcerce
 {
 
 
-    public partial class Login
+    public partial class errorStock
     {
     }
 }

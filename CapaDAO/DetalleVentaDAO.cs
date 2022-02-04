@@ -59,23 +59,22 @@ namespace CapaDAO
             return ID;
         }
 
-        public bool RegistrarDetalle(List<DetalleVenta> listaDetalle)
+        public bool RegistrarDetalle(DetalleVenta objDetalle)
         {
             SqlConnection con = null;
             SqlCommand cmd = null;
             bool response = false;
-            foreach (DetalleVenta item in listaDetalle)
-            {
+            
                 try
                 {
                     con = Conexion.getInstance().ConexionBD();
                     cmd = new SqlCommand("SP_RegistrarDetalle", con);
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
-                    cmd.Parameters.AddWithValue("@idventa", item.ID_Venta.ID);
-                    cmd.Parameters.AddWithValue("@idproducto", item.ID_Producto.ID);
-                    cmd.Parameters.AddWithValue("@precio", item.Precio);
-                    cmd.Parameters.AddWithValue("@cantidad", item.Cantidad);
+                    cmd.Parameters.AddWithValue("@idventa", objDetalle.ID_Venta.ID);
+                    cmd.Parameters.AddWithValue("@idproducto", objDetalle.ID_Producto.ID);
+                    cmd.Parameters.AddWithValue("@precio", objDetalle.Precio);
+                    cmd.Parameters.AddWithValue("@cantidad", objDetalle.Cantidad);
 
 
                     con.Open();
@@ -93,7 +92,7 @@ namespace CapaDAO
                     con.Close();
                 }
 
-            }
+            
             return response;
         }
 

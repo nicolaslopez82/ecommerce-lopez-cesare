@@ -57,16 +57,74 @@ UPDATE Productos SET ID_Categoria=@idCategoria,
 END
 
 go
-create PROCEDURE SP_EliminarProducto
+alter PROCEDURE SP_EliminarProducto
 (
  @id bigint
 )
 as 
 BEGIN
-DELETE from Productos where ID= @id
+
+update Productos set Estado =0 where ID = @id
+
+
 END
 
-select top 1 * from Productos ORDER by ID desc
+go
+alter procedure SP_ValidarStock
+(
+    @idproducto bigint,
+    @cantidad bigint
+)
+AS
+BEGIN
+
+    select count(*) as r from Productos where ID = @idproducto and Stock >= @cantidad 
+     
+    
+END
+
+go
+alter PROCEDURE SP_BajaStock
+(
+    @idproducto bigint
+)
+as 
+BEGIN
+
+UPDATE Productos set Stock= Stock -1 where ID = @idproducto
+
+END
+
+go
+create PROCEDURE SP_AltaStock
+(
+    @idproducto bigint
+)
+AS
+BEGIN
+
+UPDATE Productos set Stock= Stock +1 where ID = @idproducto
+
+END
+
+go
+create PROCEDURE SP_BuscarProducto
+(
+    @idproducto bigint
+)
+AS
+BEGIN
+select p.ID,
+        p.Descripcion,
+        p.Estado,
+        p.ID_Categoria,
+        p.Precio,
+        p.Stock,
+        p.UrlImagen
+from Productos as P where p.ID = @idproducto
+
+END
+
 -- ///////////////// TERMINA PRODUCTOS /////////////////////////////--
 
 --/////////////// EMPIEZA FORMA DE PAGO ////////////////////////////-
@@ -148,3 +206,4 @@ select * FROM DetalleVenta where ID_Venta = 10
 
 select * from Ventas
 --///////////////// TERMINA DETALLE VENTA ////////////////////
+
