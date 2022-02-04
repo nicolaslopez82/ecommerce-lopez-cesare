@@ -14,7 +14,7 @@ namespace e_comcerce
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
 
             //TODO Checkear este if.
             if (!Page.IsPostBack)
@@ -28,7 +28,7 @@ namespace e_comcerce
                 PerfilDomicilio.Text = usuario.Domicilio;
                 PerfilCelular.Text = usuario.Celular;
                 PerfilEmail.Text = usuario.Email;
-            }           
+            }
             lblError.Text = "";
             lblErrorContrasenia.Text = "";
 
@@ -40,11 +40,11 @@ namespace e_comcerce
                 PerfilApellido.Text == "" ||
                 PerfilDNI.Text == "" ||
                 PerfilDomicilio.Text == "" ||
-                PerfilCelular.Text == "" )
+                PerfilCelular.Text == "")
             {
                 lblError.Text = "Ningun campo puede quedar vacio.";
             }
-            else 
+            else
             {
                 Usuario usuarioAGuardar = new Usuario(PerfilEmail.Text, PerfilNombre.Text, PerfilApellido.Text,
                                                       PerfilDNI.Text, PerfilDomicilio.Text, PerfilCelular.Text);
@@ -53,7 +53,7 @@ namespace e_comcerce
 
                 if (usuarioModificado)
                 {
-                    Response.Write("<script language=javascript>alert('Usuario Modificado Correctamente.')</script>");                    
+                    Response.Write("<script language=javascript>alert('Usuario Modificado Correctamente.')</script>");
                 }
                 else
                 {
@@ -70,7 +70,7 @@ namespace e_comcerce
         }
 
         protected void BtnEliminarCuenta_Click(object sender, EventArgs e)
-        {            
+        {
 
             Usuario usuarioAEliminar = new Usuario(PerfilEmail.Text, PerfilNombre.Text, PerfilApellido.Text,
                                                       PerfilDNI.Text, PerfilDomicilio.Text, PerfilCelular.Text);
@@ -89,10 +89,11 @@ namespace e_comcerce
                 Response.Write("<script language=javascript>alert('Usuario No Eliminado.')</script>");
                 Response.Redirect("Default.aspx", false);
             }
-            
-        }      
 
-        private void LimpiarCampos() {
+        }
+
+        private void LimpiarCampos()
+        {
             PerfilNombre.Text = "";
             PerfilApellido.Text = "";
             PerfilDNI.Text = "";

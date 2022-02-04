@@ -11,7 +11,7 @@ namespace e_comcerce
     public partial class Logout : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {}
+        { }
 
         [WebMethod]
         public static bool CerrarSession()
