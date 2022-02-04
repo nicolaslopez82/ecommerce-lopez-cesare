@@ -77,9 +77,8 @@ CREATE PROCEDURE SP_ValidarStock
 AS
 BEGIN
 
-    SELECT COUNT(*) AS r FROM Productos WHERE IdProducto = @idproducto AND Stock >= @cantidad 
-     
-    
+    SELECT COUNT(*) AS r FROM Productos WHERE IdProducto = @idproducto AND Stock >= @cantidad;
+        
 END
 
 
@@ -90,7 +89,7 @@ CREATE PROCEDURE SP_BajaStock
 AS 
 BEGIN
 
-UPDATE Productos SET Stock = Stock -1 WHERE IdProducto = @idProducto
+UPDATE Productos SET Stock = Stock -1 WHERE IdProducto = @idProducto;
 
 END
 
