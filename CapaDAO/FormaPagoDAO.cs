@@ -38,7 +38,7 @@ namespace CapaDAO
             {
 
                 con = Conexion.getInstance().ConexionBD();
-                cmd = new SqlCommand("SP_ListaFormaPAgo", con);
+                cmd = new SqlCommand("SP_ListaFormaPago", con);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 con.Open();
 
@@ -47,11 +47,10 @@ namespace CapaDAO
                 while (dr.Read())
                 {
                     FormaPago obj = new FormaPago();
-                    obj.ID = Convert.ToInt32(dr["ID"].ToString());
+                    obj.IdFormaPago = Convert.ToInt32(dr["IdFormaPago"].ToString());
                     obj.Descripcion = dr["Descripcion"].ToString();
 
                     Lista.Add(obj);
-
                 }
             }
             catch (Exception ex)
