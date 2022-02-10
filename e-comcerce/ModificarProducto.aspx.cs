@@ -23,14 +23,14 @@ namespace e_comcerce
 
           
 
-            if (Request.QueryString["id"] != null)
+            if (Request.QueryString["IdProducto"] != null)
             {
-                id = Convert.ToInt32(Request.QueryString["id"]);
+                id = Convert.ToInt32(Request.QueryString["IdProducto"]);
 
 
             }
             listaproducto = (List<Productoss>)Session["listaproducto"];
-            objProducto = listaproducto.Find(x => x.ID == id);
+            objProducto = listaproducto.Find(x => x.IdProducto == id);
             
             /*
             txtIDcategoria.Text = objProducto.ID_Categoria.ID.ToString();
@@ -48,13 +48,13 @@ namespace e_comcerce
         protected void btnAceptar_Click(object sender, EventArgs e)
         {
             aux = new Productoss();
-            aux.ID_Categoria = new Categoria();
-            aux.ID = objProducto.ID;
-           aux.ID_Categoria.ID = Convert.ToInt32( txtIDcategoria.Text);
+            aux.IdCategoria = new Categoria();
+            aux.IdProducto = objProducto.IdProducto;
+           aux.IdCategoria.IdCategoria = Convert.ToInt32( txtIDcategoria.Text);
             aux.Descripcion = txtDescripcion.Text;
             aux.Precio = Convert.ToDecimal(txtPrecio.Text);
             aux.Stock = Convert.ToInt32(txtStock.Text);
-            aux.URLimagen = txtURL.Text;
+            aux.UrlImagen = txtURL.Text;
             bool ok = ProductoNegocio.getInstance().ModificarProducto(aux);
 
             Response.Redirect("ProductosAdmin.aspx");

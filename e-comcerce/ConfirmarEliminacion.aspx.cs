@@ -19,9 +19,9 @@ namespace e_comcerce
 
             ListaProducto = ProductoNegocio.getInstance().listaProductos();
 
-            if (Request.QueryString["id"] != null)
+            if (Request.QueryString["IdProducto"] != null)
             {
-                string id = Request.QueryString["id"].ToString();
+                string id = Request.QueryString["IdProducto"].ToString();
 
                 
             }

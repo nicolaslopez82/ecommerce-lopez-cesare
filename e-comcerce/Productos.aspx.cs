@@ -73,7 +73,7 @@ namespace e_comcerce
                                 objCarrito.Producto = new Productoss();
                                 objCarrito.Producto = item;
                                 objCarrito.Cantidad = 1;
-                                objCarrito.id = 1;
+                                objCarrito.IdCarro = 1;
 
                                 bool ok = ProductoNegocio.getInstance().BajaStock(idAux);
                             }

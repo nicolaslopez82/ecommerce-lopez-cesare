@@ -33,15 +33,15 @@ namespace e_comcerce
           
 
            
-            if (Request.QueryString["id"] != null)
+            if (Request.QueryString["IdProducto"] != null)
             {
-                string id = Request.QueryString["id"].ToString();
+                string id = Request.QueryString["IdProducto"].ToString();
 
                 int idAux = int.Parse(id);
                 
                 foreach (Carro pro2 in carrito)
                 {
-                    if(pro2.Producto.ID== Convert.ToInt32(id))
+                    if(pro2.Producto.IdProducto == Convert.ToInt32(id))
                     {
                         total = total - pro2.Producto.Precio;
                         if (pro2.Cantidad > 1)
@@ -59,7 +59,7 @@ namespace e_comcerce
 
                 if (aux == 1)
                 {
-                    carrito.Remove(carrito.Find(x => x.Producto.ID == int.Parse(id)));
+                    carrito.Remove(carrito.Find(x => x.Producto.IdProducto == int.Parse(id)));
 
                     bool ok = ProductoNegocio.getInstance().AltaStock(idAux);
                 }

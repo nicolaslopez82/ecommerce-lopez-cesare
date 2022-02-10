@@ -52,9 +52,9 @@ namespace e_comcerce
             Ventas objVenta = new Ventas();
 
             //  Este tiene que sacar del session el usuario NICOLAS LOPEZ 
-            objVenta.ID_Usuario = 1;
+            objVenta.IdUsuario = 1;
             //
-            objVenta.ID_FormaPago = int.Parse(dropFormaPago.SelectedItem.Value);
+            objVenta.IdFormaPago = int.Parse(dropFormaPago.SelectedItem.Value);
             objVenta.DescripcionVenta = txtAclaracion.Text;
             objVenta.DireccionEnvio = txtDireccionEnvio.Text;
 
@@ -82,10 +82,10 @@ namespace e_comcerce
 
             foreach (Carro pro in carrito)
             {
-                objDetalle.ID_Venta = new Ventas();
-                objDetalle.ID_Venta.ID = ID_Venta;
-                objDetalle.ID_Producto = new Productoss();
-                objDetalle.ID_Producto.ID = pro.Producto.ID;
+                objDetalle.IdVenta = new Ventas();
+                objDetalle.IdVenta.IdVenta = ID_Venta;
+                objDetalle.IdProducto = new Productoss();
+                objDetalle.IdProducto.IdProducto = pro.Producto.IdProducto;
                 objDetalle.Precio = pro.Producto.Precio;
 
                 objDetalle.Cantidad = pro.Cantidad;

@@ -20,12 +20,12 @@ namespace e_comcerce
         protected void btnRegistrar_Click(object sender, EventArgs e)
         {
             Productoss obj = new Productoss();
-            obj.ID_Categoria = new Categoria();
-            obj.ID_Categoria.ID = Convert.ToInt32(txtCategoria.Text);
+            obj.IdCategoria = new Categoria();
+            obj.IdCategoria.IdCategoria = Convert.ToInt32(txtCategoria.Text);
             obj.Descripcion = txtDescripcion.Text;
             obj.Stock = Convert.ToInt32(txtStock.Text);
             obj.Precio = Convert.ToInt32(txtPrecio.Text);
-            obj.URLimagen = txtURL.Text;
+            obj.UrlImagen = txtURL.Text;
 
             bool ok = ProductoNegocio.getInstance().RegistrarProducto(obj);
 
