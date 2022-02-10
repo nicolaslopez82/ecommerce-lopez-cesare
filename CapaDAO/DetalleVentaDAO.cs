@@ -42,7 +42,7 @@ namespace CapaDAO
 
                 if (dr.Read())
                 {
-                    ID = Convert.ToInt32(dr["IdProducto"].ToString());
+                    ID = Convert.ToInt32(dr["IdProducto"].ToString()); //IdVenta
                 }
 
                
@@ -71,8 +71,8 @@ namespace CapaDAO
                     cmd = new SqlCommand("SP_RegistrarDetalle", con);
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
-                    cmd.Parameters.AddWithValue("@idventa", objDetalle.IdVenta.IdVenta);
-                    cmd.Parameters.AddWithValue("@idproducto", objDetalle.IdProducto.IdProducto);
+                    cmd.Parameters.AddWithValue("@idVenta", objDetalle.IdVenta.IdVenta);
+                    cmd.Parameters.AddWithValue("@idProducto", objDetalle.IdProducto.IdProducto);
                     cmd.Parameters.AddWithValue("@precio", objDetalle.Precio);
                     cmd.Parameters.AddWithValue("@cantidad", objDetalle.Cantidad);
 
