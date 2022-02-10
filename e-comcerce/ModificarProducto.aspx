@@ -10,7 +10,7 @@
             </div>
             <hr />
             <h5 class="card-title"><%: objProducto.Descripcion %></h5>
-            <img src="<%: objProducto.URLimagen  %>" alt="Alternate Text" width="100%" />
+            <img src="<%: objProducto.UrlImagen  %>" alt="Alternate Text" width="100%" />
             <p class="card-text">¿Desea modificar este producto?</p>
             <asp:TextBox ID="txtIDcategoria"  runat="server"> </asp:TextBox>
             <asp:TextBox ID="txtDescripcion" runat="server">  </asp:TextBox>

@@ -12,7 +12,7 @@ namespace e_comcerce
 {
     public partial class ModificarProducto : System.Web.UI.Page
     {
-        public int id { get; set; }
+        public int IdProducto { get; set; }
         public List<Productoss> listaproducto { get; set; }
 
         public Productoss objProducto { get; set; }
@@ -25,12 +25,12 @@ namespace e_comcerce
 
             if (Request.QueryString["IdProducto"] != null)
             {
-                id = Convert.ToInt32(Request.QueryString["IdProducto"]);
+                IdProducto = Convert.ToInt32(Request.QueryString["IdProducto"]);
 
 
             }
             listaproducto = (List<Productoss>)Session["listaproducto"];
-            objProducto = listaproducto.Find(x => x.IdProducto == id);
+            objProducto = listaproducto.Find(x => x.IdProducto == IdProducto);
             
             /*
             txtIDcategoria.Text = objProducto.ID_Categoria.ID.ToString();
