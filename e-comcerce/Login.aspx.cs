@@ -32,11 +32,11 @@ namespace e_comcerce
             if (usuario != null)
             {
                 Session.Add("usuario", usuario);
-                Session.Add("userName", usuario.Email);                
+                Session.Add("userName", usuario.Email);
                 Response.Redirect("Default.aspx", false);
             }
             else
-            {                
+            {
                 //Response.Write("<script>alert('Usuario y/o Contraseña incorrecto.')</script>");
                 Response.Write("<script language='javascript'>alert('Usuario y/o Contraseña incorrectos.');</script>");
                 Session.Add("error", "user o pass incorrectos");

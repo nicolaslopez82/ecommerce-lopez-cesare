@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace CapaDominio
 {
-  public  class FormaPago
+    public class Carro
     {
-        public int IdFormaPago { get; set; }
+        public int IdCarro { get; set; }
 
-        public string Descripcion { get; set; }
+        public Productoss Producto { get; set; }
 
-        public bool Estado { get; set; }
 
+        public int Cantidad { get; set; }
 
     }
 }

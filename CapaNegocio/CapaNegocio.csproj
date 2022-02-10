@@ -49,9 +49,9 @@
     <Compile Include="VentaNegocio.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CapaAccesoDato\CapaAccesoDato.csproj">
+    <ProjectReference Include="..\CapaAccesoDato\CapaAccesoDatos.csproj">
       <Project>{f4ad29ad-6958-499a-9fae-32e989be9c96}</Project>
-      <Name>CapaAccesoDato</Name>
+      <Name>CapaAccesoDatos</Name>
     </ProjectReference>
     <ProjectReference Include="..\CapaDAO\CapaDAO.csproj">
       <Project>{3c978493-0b51-4b77-b642-dcc07392b0e1}</Project>

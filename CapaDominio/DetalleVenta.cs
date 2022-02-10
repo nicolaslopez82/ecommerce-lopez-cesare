@@ -8,9 +8,10 @@ namespace CapaDominio
 {
   public  class DetalleVenta
     {
-        public Ventas ID_Venta { get; set; }
+        public int IdDetalleVenta { get; set; }
+        public Ventas IdVenta { get; set; }
 
-        public Productoss ID_Producto { get; set; }
+        public Productoss IdProducto { get; set; }
 
         public decimal Precio { get; set; }
 

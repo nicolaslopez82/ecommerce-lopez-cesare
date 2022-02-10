@@ -3,9 +3,7 @@
      <title>UTN E-Commerce | Ver Perfil</title>
 
     <script type="text/javascript">
-
         function ConfirmarModificacion() { return confirm("Desea confirmar los cambios?"); }
-
         function ConfirmarEliminacion() { return confirm("Desea confirmar la eliminacion de la cuenta?"); }
     </script>
 

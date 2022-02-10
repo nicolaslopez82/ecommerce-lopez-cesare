@@ -18,7 +18,7 @@ namespace e_comcerce
             {
                 Session.Add("error", "Debes loguearte para ingresar");
                 Response.Redirect("Error.aspx", false);
-            }            
+            }
 
             if (!(Session["usuario"] != null &&
                 ((Usuario)Session["usuario"]).TipoUsuario == TipoUsuario.ADMIN))
@@ -27,7 +27,7 @@ namespace e_comcerce
                 Response.Redirect("Error.aspx", false);
             }
 
-            if (!Page.IsPostBack){}
+            if (!Page.IsPostBack) { }
         }
 
         [WebMethod]

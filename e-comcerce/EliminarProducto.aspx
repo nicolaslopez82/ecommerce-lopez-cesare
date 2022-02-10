@@ -10,7 +10,7 @@
         </div>
             <hr />
             <h5 class="card-title"><%: objProducto.Descripcion %></h5>
-            <img src="<%: objProducto.URLimagen %>" alt="Alternate Text" width="100%" />
+            <img src="<%: objProducto.UrlImagen %>" alt="Alternate Text" width="100%" />
             <p class="card-text">¿Desea eliminar este producto?</p>
             <asp:Button ID="btnAceptar" OnClick="btnAceptar_Click" class="btn btn-success" runat="server" Text="Aceptar" />
             <asp:Button ID="btnCancelar" OnClick="btnCancelar_Click" class="btn btn-danger" runat="server" Text="Cancelar" />

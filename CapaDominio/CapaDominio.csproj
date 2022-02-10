@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminComerce.cs" />
+    <Compile Include="Carro.cs" />
     <Compile Include="Categoria.cs" />
     <Compile Include="Contacto.cs" />
     <Compile Include="DetalleVenta.cs" />
@@ -50,6 +51,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Usuario.cs" />
     <Compile Include="Ventas.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CapaAccesoDato\CapaAccesoDatos.csproj">
+      <Project>{F4AD29AD-6958-499A-9FAE-32E989BE9C96}</Project>
+      <Name>CapaAccesoDatos</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

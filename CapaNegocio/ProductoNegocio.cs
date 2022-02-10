@@ -25,11 +25,24 @@ namespace CapaNegocio
         }
         #endregion
 
+        public bool ValidarStock(int idProducto,int cantidad)
+        {
+            try
+            {
+                return ProductoDAO.getInstance().ValidarStock(idProducto, cantidad);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
         public bool RegistrarProducto(Productoss objProducto)
         {
             try
             {
-                ProductoDAO.getInstance().registrarProducto(objProducto);
+                ProductoDAO.getInstance().RegistrarProducto(objProducto);
                 return true;
             }
             catch (Exception ex)
@@ -65,11 +78,37 @@ namespace CapaNegocio
             }
         }
 
-        public bool EliminarProducto(int ID_Producto)
+        public bool EliminarProducto(int idProducto)
         {
             try
             {
-                return ProductoDAO.getInstance().EliminarProducto(ID_Producto);
+                return ProductoDAO.getInstance().EliminarProducto(idProducto);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public bool BajaStock(int idProducto)
+        {
+            try
+            {
+                return ProductoDAO.getInstance().BajaStock(idProducto);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public bool AltaStock(int idProducto)
+        {
+            try
+            {
+                return ProductoDAO.getInstance().AltaStock(idProducto);
             }
             catch (Exception ex)
             {

@@ -9,7 +9,7 @@ namespace CapaDominio
   public  class Contacto
     {
 
-        public int ID { get; set; }
+        public int IdContacto { get; set; }
 
         public string Email { get; set; }
 

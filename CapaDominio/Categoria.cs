@@ -9,7 +9,7 @@ namespace CapaDominio
    public class Categoria
     {
 
-        public int ID { get; set; }
+        public int IdCategoria { get; set; }
 
         public string Descripcion { get; set; }
 

@@ -8,7 +8,7 @@ namespace CapaDominio
 {
   public  class AdminComerce
     {
-        public int ID { get; set; }
+        public int IdAdminCommerce { get; set; }
 
         public string NombreComercio { get; set; }
 

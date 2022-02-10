@@ -13,7 +13,7 @@ namespace CapaDAO
     {
 
         #region "PATRON SINGLETON"
-        private static VentaDAO daoVenta= null;
+        private static VentaDAO daoVenta = null;
         private VentaDAO() { }
         public static VentaDAO getInstance()
         {
@@ -37,8 +37,8 @@ namespace CapaDAO
                 cmd = new SqlCommand("SP_FinalizarVenta", con);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@idUsuario", objVenta.ID_Usuario);
-                cmd.Parameters.AddWithValue("@idPago", objVenta.ID_FormaPago);
+                cmd.Parameters.AddWithValue("@idUsuario", objVenta.IdUsuario);
+                cmd.Parameters.AddWithValue("@idPago", objVenta.IdFormaPago);
                 cmd.Parameters.AddWithValue("@descripcion", objVenta.DescripcionVenta);
                 cmd.Parameters.AddWithValue("@direccion", objVenta.DireccionEnvio);
                 cmd.Parameters.AddWithValue("@estadoretiro", objVenta.EstadoRetiro);

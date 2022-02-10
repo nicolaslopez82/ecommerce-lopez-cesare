@@ -12,21 +12,21 @@ namespace e_comcerce
 {
     public partial class Venta : System.Web.UI.Page
     {
-        public List<Productoss> carrito { get; set; }
+        public List<Carro> carrito { get; set; }
 
         public decimal total { get; set; }
 
         public List<FormaPago> listaFormaPago { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            carrito = new List<Productoss>();
-            carrito = (List<Productoss>)Session["carrito"];
+            carrito = new List<Carro>();
+            carrito = (List<Carro>)Session["carrito"];
 
             total = 0;
 
-            foreach (Productoss pro in carrito)
+            foreach (Carro pro in carrito)
             {
-                total += pro.Precio;
+                total += pro.Producto.Precio * pro.Cantidad;
             }
 
             listaFormaPago = FormaPagoNegocio.getInstance().listarFormaPago();
@@ -35,6 +35,8 @@ namespace e_comcerce
             dropFormaPago.DataTextField = "Descripcion";
             dropFormaPago.DataValueField = "ID";
             dropFormaPago.DataBind();
+
+
 
         }
 
@@ -48,15 +50,11 @@ namespace e_comcerce
            
             //Para la venta
             Ventas objVenta = new Ventas();
-            //  Este tiene que sacar del session el usuario
 
-            string email = Session["userName"].ToString();
-            Usuario usuario = UsuarioNegocio.getInstance().BuscarUsuarioPorEmail(email);
-
-            objVenta.ID_Usuario = usuario.ID;
-
+            //  Este tiene que sacar del session el usuario NICOLAS LOPEZ 
+            objVenta.IdUsuario = 1;
             //
-            objVenta.ID_FormaPago = int.Parse(dropFormaPago.SelectedItem.Value);
+            objVenta.IdFormaPago = int.Parse(dropFormaPago.SelectedItem.Value);
             objVenta.DescripcionVenta = txtAclaracion.Text;
             objVenta.DireccionEnvio = txtDireccionEnvio.Text;
 
@@ -82,21 +80,22 @@ namespace e_comcerce
 
             ID_Venta = DetalleVentaNegocio.getInstance().UltimoIdVenta();
 
-            foreach (Productoss pro in carrito)
+            foreach (Carro pro in carrito)
             {
-                objDetalle.ID_Venta = new Ventas();
-                objDetalle.ID_Venta.ID = ID_Venta;
-                objDetalle.ID_Producto = new Productoss();
-                objDetalle.ID_Producto.ID = pro.ID;
-                objDetalle.Precio = pro.Precio;
+                objDetalle.IdVenta = new Ventas();
+                objDetalle.IdVenta.IdVenta = ID_Venta;
+                objDetalle.IdProducto = new Productoss();
+                objDetalle.IdProducto.IdProducto = pro.Producto.IdProducto;
+                objDetalle.Precio = pro.Producto.Precio;
 
-                objDetalle.Cantidad = 1;
+                objDetalle.Cantidad = pro.Cantidad;
 
-                listaDetalle.Add(objDetalle);
+                
+                bool aux = DetalleVentaNegocio.getInstance().RegistrarDetalle(objDetalle);
 
             }
 
-            bool aux = DetalleVentaNegocio.getInstance().RegistrarDetalle(listaDetalle);
+           
 
             Response.Redirect("VentaFinalizada.aspx");
 

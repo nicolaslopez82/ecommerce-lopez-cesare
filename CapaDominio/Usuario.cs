@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 namespace CapaDominio
 {
     public enum TipoUsuario
-    {        
+    {
         ADMIN = 1,
         COMPRADOR = 2
     }
     public class Usuario
     {
-        public int ID { get; set; }
+        public int IdUsuario { get; set; }
 
-        public string  Email{ get; set; }
+        public string Email { get; set; }
         public string Clave { get; set; }
 
         public string Nombre { get; set; }
@@ -28,7 +28,7 @@ namespace CapaDominio
 
         public string Celular { get; set; }
 
-        public bool Estado { get; set; }    
+        public bool Estado { get; set; }
 
         public TipoUsuario TipoUsuario { get; set; }
 
@@ -41,12 +41,12 @@ namespace CapaDominio
             TipoUsuario = admin ? TipoUsuario.ADMIN : TipoUsuario.COMPRADOR;
         }
 
-        public Usuario(string email, string clave, bool estado, bool admin, 
+        public Usuario(string email, string clave, bool estado, bool admin,
             string nombre, string apellido, string documento, string domicilio, string celular)
         {
             Email = email;
             Clave = clave;
-            TipoUsuario = admin? TipoUsuario.ADMIN : TipoUsuario.COMPRADOR;
+            TipoUsuario = admin ? TipoUsuario.ADMIN : TipoUsuario.COMPRADOR;
             Nombre = nombre;
             Apellido = apellido;
             Documento = documento;
@@ -57,7 +57,7 @@ namespace CapaDominio
 
         public Usuario(string email, string nombre, string apellido, string documento, string domicilio, string celular)
         {
-            Email = email;            
+            Email = email;
             Nombre = nombre;
             Apellido = apellido;
             Documento = documento;

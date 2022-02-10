@@ -107,6 +107,7 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="Carrito.aspx" />
+    <Content Include="ConfirmarEliminacion.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -117,6 +118,7 @@
     <Content Include="EliminarProducto.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="ErrorLogin.aspx" />
+    <Content Include="errorStock.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -129,12 +131,9 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
-    <Content Include="javascript\Compradores.js" />
-    <Content Include="javascript\EliminarUsuarioConfirmar.js" />
-    <Content Include="javascript\Perfil.js" />
-    <Content Include="javascript\Logout.js" />
-    <Content Include="javascript\RegistroValidaciones.js" />
+    <Content Include="IndexAdmin.aspx" />
     <Content Include="ListadoCompradores.aspx" />
+    <Content Include="ListaEliminar.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Logout.aspx" />
     <Content Include="ModificarProducto.aspx" />
@@ -196,6 +195,13 @@
     <Compile Include="Carrito.aspx.designer.cs">
       <DependentUpon>Carrito.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ConfirmarEliminacion.aspx.cs">
+      <DependentUpon>ConfirmarEliminacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConfirmarEliminacion.aspx.designer.cs">
+      <DependentUpon>ConfirmarEliminacion.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -231,8 +237,22 @@
     <Compile Include="ErrorLogin.aspx.designer.cs">
       <DependentUpon>ErrorLogin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="errorStock.aspx.cs">
+      <DependentUpon>errorStock.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="errorStock.aspx.designer.cs">
+      <DependentUpon>errorStock.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="IndexAdmin.aspx.cs">
+      <DependentUpon>IndexAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="IndexAdmin.aspx.designer.cs">
+      <DependentUpon>IndexAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="ListadoCompradores.aspx.cs">
       <DependentUpon>ListadoCompradores.aspx</DependentUpon>
@@ -240,6 +260,13 @@
     </Compile>
     <Compile Include="ListadoCompradores.aspx.designer.cs">
       <DependentUpon>ListadoCompradores.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListaEliminar.aspx.cs">
+      <DependentUpon>ListaEliminar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListaEliminar.aspx.designer.cs">
+      <DependentUpon>ListaEliminar.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

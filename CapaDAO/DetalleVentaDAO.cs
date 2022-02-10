@@ -13,13 +13,13 @@ namespace CapaDAO
    public class DetalleVentaDAO
     {
         #region "PATRON SINGLETON"
-        private static DetalleVentaDAO daoDetalleVenta= null;
+        private static DetalleVentaDAO daoDetalleVenta = null;
         private DetalleVentaDAO() { }
         public static DetalleVentaDAO getInstance()
         {
-            if (daoDetalleVenta== null)
+            if (daoDetalleVenta == null)
             {
-                daoDetalleVenta= new DetalleVentaDAO();
+                daoDetalleVenta = new DetalleVentaDAO();
             }
             return daoDetalleVenta;
         }
@@ -42,7 +42,7 @@ namespace CapaDAO
 
                 if (dr.Read())
                 {
-                    ID = Convert.ToInt32(dr["ID"].ToString());
+                    ID = Convert.ToInt32(dr["IdProducto"].ToString()); //IdVenta
                 }
 
                
@@ -59,23 +59,22 @@ namespace CapaDAO
             return ID;
         }
 
-        public bool RegistrarDetalle(List<DetalleVenta> listaDetalle)
+        public bool RegistrarDetalle(DetalleVenta objDetalle)
         {
             SqlConnection con = null;
             SqlCommand cmd = null;
             bool response = false;
-            foreach (DetalleVenta item in listaDetalle)
-            {
+            
                 try
                 {
                     con = Conexion.getInstance().ConexionBD();
                     cmd = new SqlCommand("SP_RegistrarDetalle", con);
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
-                    cmd.Parameters.AddWithValue("@idventa", item.ID_Venta.ID);
-                    cmd.Parameters.AddWithValue("@idproducto", item.ID_Producto.ID);
-                    cmd.Parameters.AddWithValue("@precio", item.Precio);
-                    cmd.Parameters.AddWithValue("@cantidad", item.Cantidad);
+                    cmd.Parameters.AddWithValue("@idVenta", objDetalle.IdVenta.IdVenta);
+                    cmd.Parameters.AddWithValue("@idProducto", objDetalle.IdProducto.IdProducto);
+                    cmd.Parameters.AddWithValue("@precio", objDetalle.Precio);
+                    cmd.Parameters.AddWithValue("@cantidad", objDetalle.Cantidad);
 
 
                     con.Open();
@@ -93,7 +92,7 @@ namespace CapaDAO
                     con.Close();
                 }
 
-            }
+            
             return response;
         }
 

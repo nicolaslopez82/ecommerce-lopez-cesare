@@ -11,24 +11,27 @@
             <tr>
                 <th scope="col">Descripcion</th>
                 <th scope="col">Precio</th>
+                <th scope="col">Cantidad</th>
                   <th scope="col">Imagen</th>
             </tr>
         </thead>
         <tbody>
 
-            <% foreach (CapaDominio.Productoss pro in carrito)
+            <% foreach (CapaDominio.Carro pro in carrito)
                 {
         %>
             <tr>
 
-                <td><%: pro.Descripcion %></td>
-                <td><%:pro.Precio %></td>
-                <td> <img src="<%: pro.URLimagen %>" width="50px" alt="Alternate Text" /></td>
+                <td><%: pro.Producto.Descripcion %></td>
+                <td><%:pro.Producto.Precio %></td>
+                <td><%:pro.Cantidad %></td>
+                <td> <img src="<%: pro.Producto.UrlImagen %>" width="50px" alt="Alternate Text" /></td>
 
             </tr>
 
             <%   } %>
             <tr>
+                <th scope="col"></th>
                 <th scope="col"></th>
                 <th scope="col"></th>
                 <th scope="col">Total: $<%:total %></th>

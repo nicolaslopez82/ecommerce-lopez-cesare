@@ -7,10 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-
-namespace e_comcerce
-{
-    public partial class Logout
-    {
+namespace e_comcerce {
+    
+    
+    public partial class Logout {
     }
 }

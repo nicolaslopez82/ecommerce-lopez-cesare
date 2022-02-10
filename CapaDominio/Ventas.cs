@@ -8,13 +8,13 @@ namespace CapaDominio
 {
    public class Ventas
     {
-        public int ID { get; set; }
+        public int IdVenta { get; set; }
 
         public DateTime  FechaVenta{ get; set; }
 
-        public int ID_Usuario { get; set; }
+        public int IdUsuario { get; set; }
 
-        public int ID_FormaPago { get; set; }
+        public int IdFormaPago { get; set; }
 
         public string DescripcionVenta { get; set; }
 
