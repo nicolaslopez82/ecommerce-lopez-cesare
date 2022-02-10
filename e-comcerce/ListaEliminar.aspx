@@ -23,8 +23,8 @@
                 <td><%: item.Descripcion %></td>
                 <td><%:item.Precio %></td>
                 <td><%:item.Stock %></td>
-                <td> <img src="<%: item.URLimagen %>" width="50px" alt="Alternate Text" /></td>
-                 <td><a href="ConfirmarEliminacion.aspx?id=<%: item.ID %>" class="btn btn-danger">Eliminar</a></td>   
+                <td> <img src="<%: item.UrlImagen %>" width="50px" alt="Alternate Text" /></td>
+                 <td><a href="ConfirmarEliminacion.aspx?id=<%: item.IdProducto %>" class="btn btn-danger">Eliminar</a></td>   
 
             </tr>
 

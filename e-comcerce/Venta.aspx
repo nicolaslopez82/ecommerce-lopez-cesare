@@ -25,7 +25,7 @@
                 <td><%: pro.Producto.Descripcion %></td>
                 <td><%:pro.Producto.Precio %></td>
                 <td><%:pro.Cantidad %></td>
-                <td> <img src="<%: pro.Producto.URLimagen %>" width="50px" alt="Alternate Text" /></td>
+                <td> <img src="<%: pro.Producto.UrlImagen %>" width="50px" alt="Alternate Text" /></td>
 
             </tr>
 
